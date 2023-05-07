@@ -7,3 +7,4 @@ This bot poisons messages on the word hello and replies that don't break the rul
 
 # I will add much more later
 лнелнкеокеокео
+кеокеок
