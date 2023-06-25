@@ -1,4 +1,4 @@
-Изумительный бот от команды Андрея Мухамеда для сервера Discord Game Room(https://discord.com/invite/pGkgzSKDxD)
+Изумительный бот от команды Андрея Мухамеда для сервера Discord: ^_^Game Room(https://discord.com/invite/pGkgzSKDxD)^_^
 
 
 ![Untitled-1](https://github.com/AndreMuhamed/Game_Room/assets/128980327/edbb8560-4abd-44bf-a18c-ea55cc86f7ee)
