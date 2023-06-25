@@ -4,11 +4,13 @@ import typing
 import discord
 import random
 import requests
+import openai
 
 bot = disnake.Client()
 
 from discord.ext import commands
 from disnake.ext import commands
+from disnake.embeds import Colour
 
 intents = discord.Intents.default()
 intents.members = True
@@ -54,7 +56,7 @@ async def присоединиться(ctx: disnake.ApplicationCommandInteractio
 # ID канала для отправки вопросов
 QUESTION_CHANNEL_ID = 922996283034177587
 
-@bot.slash_command(description="Спросить вопрос про сервер")
+@bot.slash_command(description="Спросить вопрос о сервер")
 async def помощ(ctx, *, вопрос):
     # получение объекта канала для отправки вопроса
     вопрос_channel = bot.get_channel(QUESTION_CHANNEL_ID)
@@ -93,9 +95,10 @@ async def on_ready():
 
 @bot.slash_command(description="Отправляем твою крутую фотку")
 async def фотка(context: disnake.ApplicationCommandInteraction):
-    response = requests.get('https://example.com/api/cat')
+    response = requests.get('https://api.thecatapi.com/v1/images/search')
     data = response.json()
-    await context.response.send_message(data['image_url'])
+    image_url = data[0]['url']
+    await context.response.send_message(image_url)
 
 PLASH_API_KEY = "JU_FnZ9tmvKZ4xLX2POVUdg0GpU3uGc8lW-1GLp9EbE"
 
@@ -131,7 +134,7 @@ async def on_message(message):
             await channel.send('''**Не забудьте подписаться на наш канал нашего сервера:**
 Game Room: Игроновинки: https://www.youtube.com/@GameRoom_news/featured
 
-А также присоединяйтесь к нашей группе в ВК: https://vk.com/gameroom_new''')
+А также присоединяйтесь к нашей группе в ВК: https://vk.com/gameroom_news''')
             message_counter_1 = 0
 
         if message_counter_2 == message_threshold_2:
@@ -142,13 +145,15 @@ Game Room: Игроновинки: https://www.youtube.com/@GameRoom_news/featur
 ''')
             message_counter_2 = 0
 
-        # Отвечаем на приветственное сообщение пользователя
-        if message.content.lower() == 'привет':
-            response = 'Привет, я бот! Не нарушайте правила сервера.'
-            if isinstance(message.channel, disnake.DMChannel):
-                await message.author.send(response)
-            else:
-                await message.channel.send(response)
+    # Отвечаем на приветственное сообщение пользователя в определенном канале
+    if message.content.lower().startswith(('привет', 'хай', 'салют', 'привіт', 'всем привет', 'здарова', 'приветствую', 'добрый день', 'доброе утро', 'добрый вечер', 'Рад встрече')):
+        response = 'Рады приветствовать вас на нашем сервере! Мы очень рады видеть вас здесь и желаем, чтобы ваше времяпровождение было приятным и полным позитивной атмосферы. Если у вас возникнут вопросы или вам понадобится помощь, пожалуйста, не стесняйтесь обращаться к администраторам или модераторам через команду в боте. Мы также настоятельно просим вас соблюдать правила сервера.'
+
+        channel_id = 420868571422392325  # Замените YOUR_CHANNEL_ID на фактический ID вашего канала
+        if isinstance(message.channel, disnake.DMChannel):
+            await message.author.send(response)
+        elif message.channel.id == channel_id:
+            await message.channel.send(response)
 
     # Отвечаем на сообщения пользователя в личных сообщениях
     if message.author != bot.user and isinstance(message.channel, disnake.DMChannel):
@@ -157,5 +162,57 @@ Game Room: Игроновинки: https://www.youtube.com/@GameRoom_news/featur
 
     await bot.process_commands(message)
 
+
+openai.api_key = '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'  # Підставте свій API ключ OpenAI
+
+@bot.slash_command(description="Генерирует ответ в стиле GPT-3.5")
+async def чат(ctx: disnake.ApplicationCommandInteraction, вопрос: str):
+    """Генерирует ответ в стиле GPT-3.5"""
+    response = generate_chat_response(вопрос)
+    await ctx.response.send_message(response)
+
+def generate_chat_response(user_input):
+    response = openai.Completion.create(
+        engine='text-davinci-003',  # Використовуйте текстовий модуль для мови, яку ви хочете
+        prompt=user_input,
+        max_tokens=50,  # Максимальна кількість токенів відповіді
+        temperature=0.7,  # Контролює різноманітність відповідей (чим вище, тим різноманітніше)
+        n=1,  # Кількість відповідей, які будуть згенеровані
+        stop=None,  # Рядок зупинки, який можна використовувати для зупинки генерації відповіді
+    )
+  
+@bot.slash_command(description="Отправить сообщение в канал")
+async def cообщение_канал(ctx: disnake.ApplicationCommandInteraction, канал: disnake.TextChannel, *, сообщение: str):
+    """Отправляет сообщение в канал"""
+    await канал.send(сообщение, allowed_mentions=disnake.AllowedMentions.none())
+    response_msg = f"Сообщение успешно отправлено в канал {канал.mention}"
+    await ctx.response.send_message(response_msg, ephemeral=True)
+
+@bot.slash_command(name="интеграцию_канал", description="Отправить интеграцию в канал")
+async def uнтеграцию_канал(ctx: disnake.ApplicationCommandInteraction, канал: disnake.TextChannel, цвет: str, ссылка_на_фотографию: str, сообщение: str, верхнее_сообщение: str = "<@&990306177617395713>, у нас, команды Game Room: Игроновинки, имеются значимые обновления, которыми мы хотели бы поделиться"):
+    """Отправить интеграцию в канал"""
+    # Проверка на правильный формат шестнадцатеричного кода цвета
+    if len(цвет) != 7 or not цвет.startswith("#"):
+        response_msg = "Неправильный формат цвета. Используйте шестнадцатеричный код цвета в формате #RRGGBB."
+        await ctx.response.send_message(response_msg, ephemeral=True)
+        return
+
+    try:
+        embed = disnake.Embed(description=сообщение, color=int(цвет[1:], 16))
+    except ValueError:
+        response_msg = "Неправильный формат цвета. Используйте шестнадцатеричный код цвета в формате #RRGGBB."
+        await ctx.response.send_message(response_msg, ephemeral=True)
+        return
+
+    embed.set_image(url=ссылка_на_фотографию)  # Добавить фотографию в сообщение
+    await канал.send(content=верхнее_сообщение, embed=embed)
+    response_msg = f"Сообщение с интеграцией успешно отправлено в канал {канал.mention}"
+    await ctx.response.send_message(response_msg, ephemeral=True)
+
+# Пример вызова команды: /uнтеграцию_канал <канал> <цвет> <ссылка_на_фотографию> <сообщение> <верхнее_сообщение>
+# Значение в угловых скобках <> замените на соответствующие значения при вызове команды.
+# Например: /uнтеграцию_канал #general #7d002c https://example.com/image.jpg "Привет, мир!" "Важное объявление"
+
+    return response.choices[0].text.strip()
 keep_alive()
-bot.run('MTEdggsjE0ODEdggyMDYyNg.GLKaMs.Tphfdgfdfвп40lODeHbavPCWdfgdfgylAOxoP7-DKbo')
+bot.run('FDGGsbnfdndndGSHHjtrjYyNg.GLKaMs.Tph5k40lODeHbavPCWKYrqSkBylAOxoP7-DKbo')
