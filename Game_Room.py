@@ -163,7 +163,7 @@ Game Room: Игроновинки: https://www.youtube.com/@GameRoom_news/featur
     await bot.process_commands(message)
 
 
-openai.api_key = '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'  # Підставте свій API ключ OpenAI
+openai.api_key = 'sk-xjyiCYulutltl3BlbkFJYtulbRHSeE'  # Підставте свій API ключ OpenAI
 
 @bot.slash_command(description="Генерирует ответ в стиле GPT-3.5")
 async def чат(ctx: disnake.ApplicationCommandInteraction, вопрос: str):
