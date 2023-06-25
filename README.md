@@ -6,7 +6,7 @@
 ![Untitled-1](https://github.com/AndreMuhamed/Game_Room/assets/128980327/edbb8560-4abd-44bf-a18c-ea55cc86f7ee)
 
 
-The code you're looking at contains two Discord bot commands, each of which describes a specific action. Let's look at each of them:
+The code you're looking at contains 20 Discord bot commands, each of which describes a specific action. Let's look at each of them:
 
 1. Command `/отчёт`:
     - Description: Reports a violation of server rules.
