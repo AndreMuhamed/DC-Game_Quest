@@ -1,10 +1,10 @@
 # Hosting:
 
-The bot is hosted on this free service (https://replit.com/@AndreMuhamed) and controlled by another server (https://uptimerobot.com/dashboard), so it works 24/7. And best of all, it's all free!!!
+The bot is hosted on this free service (https://replit.com/@AndreMuhamed) and controlled by another server (https://uptimerobot.com/dashboard), so it works 24/7. And best of all, it's all free!
 
 # Hosting_RU:
 
-Бот размещается на этом бесплатном сервисе (https://replit.com/@AndreMuhamed) и контролируется с помощью другого сервера (https://uptimerobot.com/dashboard), поэтому работает круглосуточно и без выходных. И самое главное, что все бесплатно!!!
+Бот размещается на этом бесплатном сервисе (https://replit.com/@AndreMuhamed) и контролируется с помощью другого сервера (https://uptimerobot.com/dashboard), поэтому работает круглосуточно и без выходных. И самое главное, что все бесплатно!
 
 # Hosting_UA:
 
