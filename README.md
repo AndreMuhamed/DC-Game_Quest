@@ -13,19 +13,19 @@ The code you're looking at contains 20 Discord bot commands, each of which descr
     - Command arguments:
       - `ctx`: Object of command interaction (application command interaction) from the `disnake` library.
       - `user': Mention of the user associated with the violation (`disnake.Member' type object).
-      - `reason': The reason for the violation (term).
-      - `proof' (optional): Proof of violation (time limit).
+      - `reason`: The reason for the violation (term).
+      - `proof` (optional): Proof of violation (time limit).
     - Actions of the team:
       - Creates a complaint message containing information about the user, violation and evidence (if provided).
       - Sends a message to the specified channel for complaining about violations.
       - Sends a reply message to the author of the command about the successful sending of the violation message to the moderators.
 
-2. The `/join' command:
+2. The `/join` command:
     - Description: Sends a request to join the team.
     - Command arguments:
       - `ctx`: Object of command interaction (application command interaction) from the `disnake` library.
       - `kem`: The role the user wants to join (string).
-      - `age': Age of the user (integer).
+      - `age`: Age of the user (integer).
     - Actions of the team:
       - Creates a message with information about the request for the user to join the team, including the specified role and age.
       - Sends a message to the specified channel of requests to join the team.
@@ -35,11 +35,11 @@ The code you're looking at contains 20 Discord bot commands, each of which descr
     - Value: `922996283034177587`.
     - Description: ID of the channel in which questions will be sent.
 
-4. `/help' command:
+4. `/help` command:
     - Description: Asks a question about the server.
     - Command arguments:
       - `ctx`: Object of command interaction (application command interaction) from the `disnake` library.
-      - `question': Question about the server (string).
+      - `question`: Question about the server (string).
     - Actions of the team:
       - Gets the channel object using the ID `QUESTION_CHANNEL_ID`.
       - Sends a question to the specified channel on behalf of the team author.
@@ -52,11 +52,11 @@ The code you're looking at contains 20 Discord bot commands, each of which descr
     - Actions of the team:
       - Sends an advertising message in response to the command. Contains text and a link to order advertising.
 
-6. Variable `anecdotes':
+6. Variable `anecdotes`:
     - Meaning: List of sentences representing jokes.
     - Description: Contains several anecdotes.
 
-7. `/joke' command:
+7. `/joke` command:
     - Description: Sends a random joke.
     - Command arguments:
       - `ctx`: Object of command interaction (application command interaction) from the `disnake` library.
@@ -68,7 +68,7 @@ The code you're looking at contains 20 Discord bot commands, each of which descr
     - Description: This event is triggered when the bot is successfully connected and ready for use.
     - Actions of the function: When called, the function simply outputs a message to the console with information about which user the bot logged into the system.
 
-9. `/photo' command:
+9. `/photo` command:
     - Description: Sends a random image of a cat.
     - Command arguments:
       - `context`: Object of command interaction (application command interaction) from the `disnake` library.
@@ -81,7 +81,7 @@ The code you're looking at contains 20 Discord bot commands, each of which descr
      - Meaning: `"JU_FnZ9tmvKZ4xLX2POVUdg0GpU3uGc8lW-1GLp9EbE"`.
      - Description: API key for accessing the Unsplash service.
 
-11. `/pc' command:
+11. `/pc` command:
      - Description: Sends a random image associated with the computer.
      - Command arguments:
        - `context`: Object of command interaction (application command interaction) from the `disnake` library.
@@ -124,9 +124,9 @@ The code you're looking at contains 20 Discord bot commands, each of which descr
     - Description: This is a slash command that generates an answer in the GPT-3.5 style based on the entered question.
     - Function arguments:
       - `ctx`: Object of interaction with the command (interaction) from the `disnake` library, containing information about the command.
-      - `question': A string containing a question, on the basis of which the answer will be generated.
+      - `question`: A string containing a question, on the basis of which the answer will be generated.
     - Actions of the function:
-      - Calls the function `generate_chat_response(question)' to generate a response.
+      - Calls the function `generate_chat_response(question)` to generate a response.
       - Sends the generated response to the chat.
 
 17. Function `generate_chat_response(user_input)`:
@@ -135,7 +135,7 @@ The code you're looking at contains 20 Discord bot commands, each of which descr
       - `user_input`: A string containing the user's question.
     - Actions of the function:
       - Uses the OpenAI API key and calls the `openai.Completion.create()` method to create a request to the GPT-3.5 model.
-      - Sets request parameters, such as engine (`engine`), input text (`prompt`), maximum number of tokens (`max_tokens`), temperature (`temperature`), number of generated responses (`n`), and stop period (`stop').
+      - Sets request parameters, such as engine (`engine`), input text (`prompt`), maximum number of tokens (`max_tokens`), temperature (`temperature`), number of generated responses (`n`), and stop period (`stop`).
       - Returns a generated response.
 
 18. Function `communication_channel(ctx: disnake.ApplicationCommandInteraction, channel: disnake.TextChannel, *, message: str)`:
@@ -143,9 +143,9 @@ The code you're looking at contains 20 Discord bot commands, each of which descr
     - Function arguments:
       - `ctx`: Object of interaction with the command (interaction) from the `disnake` library, containing information about the command.
       - `channel`: Text channel object (`disnake.TextChannel`) to which the message will be sent.
-      - `message': A string containing the text of the message.
+      - `message`: A string containing the text of the message.
     - Actions of the function:
-      - Using the ``channel.send()'' method, sends a message to the specified channel.
+      - Using the ``channel.send()`` method, sends a message to the specified channel.
       - Sends a reply message with confirmation of successful sending.
 
 19. Function `untegratsiyu_kanal(ctx: disnake.ApplicationCommandInteraction, channel: disnake.TextChannel, color: str, link_to_photo: str, message: str, upper_message: str = "<@&990306177617395713>, we have Game Room teams: Game news, available significant updates we'd like to share")`:
@@ -153,15 +153,15 @@ The code you're looking at contains 20 Discord bot commands, each of which descr
     - Function arguments:
       - `ctx`: Object of interaction with the command (interaction) from the `disnake` library, containing information about the command.
       - `channel`: A text channel object (`disnake.TextChannel`) to which the integrated message will be sent.
-      - `color': A string representing the hexadecimal color code in #RRGGBB format.
-      - `link_to_photo': A string containing the URL of the photo that will be included in the integration.
-      - `message': A string containing a description of the message in the integration.
+      - `color`: A string representing the hexadecimal color code in #RRGGBB format.
+      - `link_to_photo`: A string containing the URL of the photo that will be included in the integration.
+      - `message`: A string containing a description of the message in the integration.
       - `верхнее_сообщение`: (Optional argument) A string containing the top message in the integration (by default "<@&990306177617395713>, we, the Game Room: Game News team, have significant updates that we would like to share").
     - Actions fuactions:
       - Checks the correctness of the hexadecimal color code format.
       - Creates a `disnake.Embed' object with the specified color and message description.
       - Sets the image (`url`) in the `embed` object.
-      - Using the ``kanal.send()'' method, sends a message with integration (with the specified top message and attachment) to the specified channel.
+      - Using the ``kanal.send()`` method, sends a message with integration (with the specified top message and attachment) to the specified channel.
       - Sends a reply message with confirmation of successful sending.
 
 # I am not responsible for the functionality of the bot.
