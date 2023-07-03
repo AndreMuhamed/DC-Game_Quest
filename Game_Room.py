@@ -131,10 +131,10 @@ async def on_message(message):
 
         if message_counter_1 == message_threshold_1:
             channel = message.channel
-            await channel.send('''**Не забудьте подписаться на наш канал нашего сервера:**
-Game Room: Игроновинки: https://www.youtube.com/@GameRoom_news/featured
-
-А также присоединяйтесь к нашей группе в ВК: https://vk.com/gameroom_news''')
+            await channel.send('''**Не забудьте подписать на другие наши социальные сети нашего Discord-сервера:**
+◈ Game Room: Игроновинки: https://www.youtube.com/@GameRoom_news
+◈ Паблик ВКонтакте: https://vk.com/gameroom_news
+◈ Game Room Live: https://www.youtube.com/@GameRoomNews''')
             message_counter_1 = 0
 
         if message_counter_2 == message_threshold_2:
@@ -163,7 +163,7 @@ Game Room: Игроновинки: https://www.youtube.com/@GameRoom_news/featur
     await bot.process_commands(message)
 
 
-openai.api_key = 'sk-xjyiCYulutltl3BlbkFJYtulbRHSeE'  # Підставте свій API ключ OpenAI
+openai.api_key = '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'  # Підставте свій API ключ OpenAI
 
 @bot.slash_command(description="Генерирует ответ в стиле GPT-3.5")
 async def чат(ctx: disnake.ApplicationCommandInteraction, вопрос: str):
@@ -189,13 +189,16 @@ async def cообщение_канал(ctx: disnake.ApplicationCommandInteractio
     await ctx.response.send_message(response_msg, ephemeral=True)
 
 @bot.slash_command(name="интеграцию_канал", description="Отправить интеграцию в канал")
-async def uнтеграцию_канал(ctx: disnake.ApplicationCommandInteraction, канал: disnake.TextChannel, цвет: str, ссылка_на_фотографию: str, сообщение: str, верхнее_сообщение: str = "<@&990306177617395713>, у нас, команды Game Room: Игроновинки, имеются значимые обновления, которыми мы хотели бы поделиться"):
+async def uнтеграцию_канал(ctx: disnake.ApplicationCommandInteraction, канал: disnake.TextChannel, цвет: str, ссылка_на_фотографию: str, сообщение: str, верхнее_сообщение: str = "<@&990306177617395713>, у нас, команды Game Room: Игроновинки, имеются значимые обновления, которыми мы хотели бы поделиться", вторая_строка: str = None):
     """Отправить интеграцию в канал"""
     # Проверка на правильный формат шестнадцатеричного кода цвета
     if len(цвет) != 7 or not цвет.startswith("#"):
         response_msg = "Неправильный формат цвета. Используйте шестнадцатеричный код цвета в формате #RRGGBB."
         await ctx.response.send_message(response_msg, ephemeral=True)
         return
+
+    if вторая_строка is not None:
+        сообщение = f"{сообщение}\n\n{вторая_строка}"
 
     try:
         embed = disnake.Embed(description=сообщение, color=int(цвет[1:], 16))
@@ -215,4 +218,4 @@ async def uнтеграцию_канал(ctx: disnake.ApplicationCommandInteract
 
     return response.choices[0].text.strip()
 keep_alive()
-bot.run('FDGGsbnfdndndGSHHjtrjYyNg.GLKaMs.Tph5k40lODeHbavPCWKYrqSkBylAOxoP7-DKbo')
+bot.run('MFTF8TFYFugihe-5ombvb43et5fbfd54w6')
