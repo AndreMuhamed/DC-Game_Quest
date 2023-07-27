@@ -219,4 +219,3 @@ async def uнтеграцию_канал(ctx: disnake.ApplicationCommandInteract
     return response.choices[0].text.strip()
 keep_alive()
 bot.run('MFTF8TFYFugihe-5ombvb43et5fbfd54w6')
-7иш7ш7щ6тщт
