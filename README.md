@@ -164,4 +164,4 @@ The code you're looking at contains 20 Discord bot commands, each of which descr
       - Using the ``kanal.send()`` method, sends a message with integration (with the specified top message and attachment) to the specified channel.
       - Sends a reply message with confirmation of successful sending.
 
-# I am not responsible for the functionality of the bot.пцупуцпцупЦПЦУ
+# I am not responsible for the functionality of the bot.пцупуцпцупЦПЦУУЦПУЦПУЦП
