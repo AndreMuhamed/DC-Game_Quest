@@ -35,7 +35,7 @@ async def on_member_join(member):
         os.remove("welcome.gif")  # Удаляем временный файл после отправки
 
 @bot.slash_command(description="Сообщите о нарушении правил сервера")
-async def отчет(ctx: disnake.ApplicationCommandInteraction, пользователь: disnake.Member, причина: str, доказательство: typing.Optional[str] = None):
+async def отчёт(ctx: disnake.ApplicationCommandInteraction, пользователь: disnake.Member, причина: str, доказательство: typing.Optional[str] = None):
     """Сообщает о нарушении правил сервера"""
     модераторы = ctx.guild.get_role(421378470392627213)
     отчет_msg = f"{модераторы.mention}, пользователь {пользователь.mention} был зарепорчен по причине: {причина}"
@@ -177,14 +177,14 @@ async def on_message(message):
         if message_counter_2 == message_threshold_2:
             channel = message.channel
             await channel.send('''**Поддержите наш проект донатом:**  
-ↈ https://donatello.to/andremuhamad
+ↈ https://www.patreon.com/andremuhamad
 ↈ https://www.donationalerts.com/r/andremuhamad
 ''')
             message_counter_2 = 0
 
     # Отвечаем на приветственное сообщение пользователя в определенном канале
     if message.content.lower().startswith(('привет', 'хай', 'салют', 'привіт', 'всем привет', 'здарова', 'приветствую', 'добрый день', 'доброе утро', 'добрый вечер', 'Рад встрече')):
-        response = 'Рады приветствовать вас на нашем сервере! Мы очень рады видеть вас здесь и желаем, чтобы ваше времяпровождение было приятным и полным позитивной атмосферы. Если у вас возникнут вопросы или вам понадобится помощь, пожалуйста, не стесняйтесь обращаться к администраторам или модераторам через команду в боте. Мы также настоятельно просим вас соблюдать правила сервера.'
+        response = 'Рады приветствовать вас. Мы очень рады видеть вас здесь и желаем, чтобы ваше время провождение было приятным и полным позитивной атмосферы. Если у вас возникнут вопросы или вам понадобится помощь, пожалуйста, не стесняйтесь обращаться к администраторам или модераторам через команду в боте. Мы также настоятельно просим вас соблюдать правила сервера.'
 
         channel_id = 420868571422392325  # Замените YOUR_CHANNEL_ID на фактический ID вашего канала
         if isinstance(message.channel, disnake.DMChannel):
@@ -194,11 +194,10 @@ async def on_message(message):
 
     # Отвечаем на сообщения пользователя в личных сообщениях
     if message.author != bot.user and isinstance(message.channel, disnake.DMChannel):
-        response = "Благодарю вас за сообщение! На данный момент я не могу общаться, так как занят работой круглосуточно на сервере: https://discord.gg/pGkgzSKDxD"
+        response = "***Благодарю вас за сообщение! На данный момент бот не может общаться, так как занят работой круглосуточно на сервере:*** https://discord.gg/pGkgzSKDxD"
         await message.author.send(response)
 
     await bot.process_commands(message)
-
 
 openai.api_key = os.environ["openai.api"]  # Вставьте свой API-ключ OpenAI
 
