@@ -1,1 +1,1 @@
-worker python main.py
+worker python Game_Room.py
