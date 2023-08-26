@@ -165,4 +165,4 @@ The code you're looking at contains 20 Discord bot commands, each of which descr
       - Sends a reply message with confirmation of successful sending.
 
 # I am not responsible for the functionality of the bot.
-цяуапкупкуаку
+
