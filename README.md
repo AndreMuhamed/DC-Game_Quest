@@ -1,4 +1,4 @@
-The final code I provided you is part of a Discord bot. Here is how it works:
+# The final code I provided you is part of a Discord bot. Here is how it works:
 
 1. The bot uses the `discord.py` library to interact with the Discord API.
 2. When launched (`on_ready` event), the bot prints the message "Bot is ready!" to the console to indicate that it has successfully connected to the Discord server.
