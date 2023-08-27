@@ -1,4 +1,4 @@
-This code creates a Discord bot that responds to messages and sends embedded messages (embeds). Here is how it works:
+# This code creates a Discord bot that responds to messages and sends embedded messages (embeds). Here is how it works:
 
 1. The bot uses the `discord.py` library to interact with the Discord API.
 
