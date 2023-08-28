@@ -1,91 +1,36 @@
 import discord
+from discord.ext import commands
 
 intents = discord.Intents.default()
-intents.members = True
 intents.message_content = True
 
-client = discord.Client(intents=intents)
+bot = commands.Bot(command_prefix='!', intents=intents)
 
-@client.event
+@bot.event
 async def on_ready():
-    print("Привіт! Я готовий до роботи!")
+    print("Бот готов!")
 
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
-
-    if message.content == "!давай":
-        backup_message = {
-            "name": "Набор Game Room",
-            "messages": [
-                {
-                    "data": {
-                        "content": None,
-                        "embeds": [
-                            {
-                                "description": "```Если вы стремитесь стать частью нашей дружной команды, не упустите шанс ознакомиться с условиями для вступления. Это возможность воплотить в реальность амбиции!```",
-                                "color": 8192044,
-                                "author": {
-                                    "name": "НАБОР В КОМАНДУ",
-                                    "icon_url": "https://cdn.discordapp.com/attachments/990304018188369980/1141155797808713758/icon-staff.png"
-                                },
-                                "footer": {
-                                    "text": "Для подачи заявки напишите команду:  /присоединиться"
-                                }
-                            }
-                        ]
-                    }
-                }
-            ]
-        }
-
-        for msg in backup_message["messages"]:
-            if "data" in msg and "embeds" in msg["data"]:
-                embed = discord.Embed.from_dict(msg["data"]["embeds"][0])
-                await message.channel.send(embed=embed)
-
-client.run("cdshbchsdbvufbvnfvrmtobmtmnnuykijgyferfhefp7t9ybbnj7UPZKsh4")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-import discord
-
-intents = discord.Intents.default()
-intents.members = True
-intents.message_content = True
-
-client = discord.Client(intents=intents)
-
-@client.event
-async def on_ready():
-    print("Привіт! Я готовий до роботи!")
-
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
-
-    if message.content == "!давай":
-        backup_message = {
+@bot.command(name='давай')
+async def send_combined_embed(ctx):
+    embed_data = [
+        {
+            "description": "```Если вы стремитесь стать частью нашей дружной команды, не упустите шанс ознакомиться с условиями для вступления. Это возможность воплотить в реальность амбиции!```",
+            "color": 8192044,
+            "author": {
+                "name": "НАБОР В КОМАНДУ",
+                "icon_url": "https://cdn.discordapp.com/attachments/990304018188369980/1141155797808713758/icon-staff.png"
+            },
+            "footer": {
+                "text": "Для подачи заявки напишите команду:  /присоединиться"
+            }
+        },
+        {
             "title": "# МИНИМАЛЬНЫЕ КРИТЕРИИ ДЛЯ МОДЕРАТОРОВ",
             "color": 8192044,
             "fields": [
                 {
                     "name": "> Зрелость и опыт",
-                    "value": "```Вы должны быть старше 16 лет, чтобы обладать достаточной зрелостью и опытом для эффективной работы в качестве модератора.```"
+                    "value": "```Вы должены быть старше 16 лет, чтобы обладать достаточной зрелостью и опытом для эффективной работы в качестве модератора.```"
                 },
                 {
                     "name": "> Знание правил",
@@ -125,48 +70,11 @@ async def on_message(message):
                 },
                 {
                     "name": "> Способность к решению проблем",
-                    "value": "```Вы должны быть способными анализировать сложные ситуации и находить эффективные решения, чтобы обеспечивать гармонию в сообществе.```"
+                    "value": "```Вы должны быть способным анализировать сложные ситуации и находить эффективные решения, чтобы обеспечивать гармонию в сообществе.```"
                 }
-            ],
-        }
-
-        embed = discord.Embed.from_dict(backup_message)
-        await message.channel.send(embed=embed)
-
-client.run("fhburyxfbuyhrewiugc,iutrjgux0ys9g7rfxrfy,jgutecmh0ieUPZKsh4")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-import discord
-
-intents = discord.Intents.default()
-intents.members = True
-intents.message_content = True
-
-client = discord.Client(intents=intents)
-
-@client.event
-async def on_ready():
-    print("Привіт! Я готовий до роботи!")
-
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
-
-    if message.content == "!давай":
-        backup_message = {
+            ]
+        },
+        {
             "title": "# ВОЗМОЖНОСТИ ГЛАВНОГО МОДЕРАТОРА НА СЕРВЕРЕ",
             "description": "В роли главного модератора заложена множество ответственных функций, которые помогут поддерживать высокий уровень организации и безопасности на сервере. Ниже представлены основные возможности главного модератора:",
             "color": 8192044,
@@ -215,45 +123,9 @@ async def on_message(message):
                     "name": "> Управление ветками и публикациями",
                     "value": "```Главный модератор способен создавать и управлять приватными ветками, а также контролировать публикации.```"
                 }
-            ],
-        }
-
-        embed = discord.Embed.from_dict(backup_message)
-        await message.channel.send(embed=embed)
-
-client.run("gtfxgyremfzyehrwzmfuyrehxuyfhkregxhrcjg0UPZKsh4")
-
-
-
-
-
-
-
-
-
-
-
-
-
-import discord
-
-intents = discord.Intents.default()
-intents.members = True
-intents.message_content = True
-
-client = discord.Client(intents=intents)
-
-@client.event
-async def on_ready():
-    print("Привіт! Я готовий до роботи!")
-
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
-
-    if message.content == "!давай":
-        backup_message = {
+            ]
+        },
+        {
             "title": "# ВОЗМОЖНОСТИ МОДЕРАТОРA НА СЕРВЕРЕ",
             "description": "Роль модератора предоставляет расширенные полномочия в сообществе, позволяя не только пользоваться функциями обычного участника, но и эффективно поддерживать порядок и безопасность. Ниже представлены основные возможности модератора:",
             "color": 8192044,
@@ -290,10 +162,12 @@ async def on_message(message):
                     "name": "> Выдача мутов",
                     "value": "```Модератор способен накладывать муты на нарушителей, временно ограничивая их возможность отправки сообщений.```"
                 }
-            ],
+            ]
         }
+    ]
 
-        embed = discord.Embed.from_dict(backup_message)
-        await message.channel.send(embed=embed)
+    for embed in embed_data:
+        embed_message = discord.Embed.from_dict(embed)
+        await ctx.send(embed=embed_message)
 
-client.run("vc7j87j8789k(BaK76vtotvk5h0i60jhKWI89BQ9Balko9g78bk68869ybbnj7UPZKsh4")
+bot.run('EXTTTNYNLO>>D^%%$D$TIUIJHVsPI29Gp7t9ybbnj7UPZKsh4')
