@@ -28,7 +28,7 @@ async def on_message(message):
                         },
                     },
                     {
-                        "title": "# Правило — 1.1",
+                        "title": "# ПРАВИЛО — 1.1",
                         "color": 8192044,
                         "fields": [
                             {
@@ -51,7 +51,7 @@ async def on_message(message):
                         },
                     },
                     {
-                        "title": "# Правило — 1.2",
+                        "title": "# ПРАВИЛО — 1.2",
                         "color": 8192044,
                         "fields": [
                             {
@@ -74,7 +74,7 @@ async def on_message(message):
                         },
                     },
                     {
-                        "title": "# Правило — 1.3",
+                        "title": "# ПРАВИЛО — 1.3",
                         "color": 8192044,
                         "fields": [
                             {
@@ -97,7 +97,7 @@ async def on_message(message):
                         },
                     },
                     {
-                        "title": "# Правило — 1.4",
+                        "title": "# ПРАВИЛО — 1.4",
                         "color": 8192044,
                         "fields": [
                             {
@@ -120,7 +120,7 @@ async def on_message(message):
                         },
                     },
                     {
-                        "title": "# Правило — 1.5",
+                        "title": "# ПРАВИЛО — 1.5",
                         "color": 8192044,
                         "fields": [
                             {
@@ -143,7 +143,7 @@ async def on_message(message):
                         },
                     },
                     {
-                        "title": "# Правило — 1.6",
+                        "title": "# ПРАВИЛО — 1.6",
                         "color": 8192044,
                         "fields": [
                             {
@@ -166,7 +166,7 @@ async def on_message(message):
                         },
                     },
                     {
-                        "title": "# Правило — 1.7",
+                        "title": "# ПРАВИЛО — 1.7",
                         "color": 8192044,
                         "fields": [
                             {
@@ -189,7 +189,7 @@ async def on_message(message):
                         },
                     },
                     {
-                        "title": "# Правило — 2.1",
+                        "title": "# ПРАВИЛО — 2.1",
                         "color": 8192044,
                         "fields": [
                             {
@@ -212,7 +212,7 @@ async def on_message(message):
                         },
                     },
                     {
-                        "title": "# Правило — 2.2",
+                        "title": "# ПРАВИЛО — 2.2",
                         "color": 8192044,
                         "fields": [
                             {
@@ -235,7 +235,7 @@ async def on_message(message):
                         },
                     },
                     {
-                        "title": "# Правило — 3.1",
+                        "title": "# ПРАВИЛО — 3.1",
                         "color": 8192044,
                         "fields": [
                             {
@@ -258,7 +258,7 @@ async def on_message(message):
                         },
                     },
                     {
-                        "title": "# Правило — 3.2",
+                        "title": "# ПРАВИЛО — 3.2",
                         "color": 8192044,
                         "fields": [
                             {
