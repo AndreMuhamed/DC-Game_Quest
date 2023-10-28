@@ -1,4 +1,4 @@
-# An amazing bot from Andrey Muhammed's team for the Discord server:
+# An amazing bot from Andrey Muhammed's team for the Discord server:  кпіркурррвраврравпуіч
 
 ^_^ Game Room(https://discord.com/invite/pGkgzSKDxD) ^_^
 
