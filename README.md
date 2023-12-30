@@ -1,4 +1,4 @@
-# Sure, let's break down what the code does:
+# This code creates a Discord bot that responds to messages and sends embedded messages (embeds). Here is how it works:
 
 1. Importing Necessary Modules:
    - `discord` and `discord.ext.commands`: These modules provide the functionality to create a Discord bot and handle commands.
