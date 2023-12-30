@@ -53,5 +53,5 @@ async def роль(ctx):
         await сообщение.add_reaction(emoji)
 
 # Запускаем бота с указанием токена
-bot.run("ybbnj7UPZKsh4")
+bot.run("YOUR_BOT_TOKEN")
 
