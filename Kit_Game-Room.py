@@ -170,4 +170,4 @@ async def send_combined_embed(ctx):
         embed_message = discord.Embed.from_dict(embed)
         await ctx.send(embed=embed_message)
 
-bot.run('EXTTTNYNLO>>D^%%$D$TIUIJHVsPI29Gp7t9ybbnj7UPZKsh4')
+bot.run('YOUR_BOT_TOKEN')
