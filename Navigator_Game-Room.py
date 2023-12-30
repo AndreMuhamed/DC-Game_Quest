@@ -55,4 +55,4 @@ async def send_custom_message(ctx):
         embed_message = discord.Embed.from_dict(embed)
         await ctx.send(embed=embed_message)
 
-bot.run('FVEBRRERCTVY:O:>>TRMMTMbYTKUTLuyLYULYsh4')
+bot.run('YOUR_BOT_TOKEN')
