@@ -4,7 +4,6 @@ from disnake.ext import commands, tasks
 from disnake import PermissionOverwrite, Member, Guild, Activity, ActivityType
 import typing
 import discord
-import vk_api
 import os
 import datetime
 import random
@@ -44,6 +43,68 @@ async def on_member_join(member):
     os.remove("welcome.gif")  # Удаляем временный файл после отправки
 
 
+message_threshold_1 = 60  # Измените на нужное вам значение
+message_counter_1 = 0
+message_threshold_2 = 40  # Измените на нужное вам значение
+message_counter_2 = 0
+
+users = {}
+
+@bot.event
+async def on_message(message):
+    if message.channel.id == 421382342595182602:  # Замените YOUR_CHANNEL_ID на ID вашего канала
+        emoji_ids = [1146196867982565497, 1146401819082379347, 1146223723746164757, 1146401807854223441, 1146196860176961653]  # Замените на ID ваших эмодзи
+        for emoji_id in emoji_ids:
+            emoji = bot.get_emoji(emoji_id)
+            if emoji:
+                await message.add_reaction(emoji)
+            else:
+                print(f"Emoji with ID {emoji_id} not found!")
+
+    global message_counter_1, message_counter_2
+
+    # Проверяем, что сообщение не от бота и не в личных сообщениях
+    if not message.author.bot and isinstance(message.channel, disnake.TextChannel):
+        message_counter_1 += 1
+        message_counter_2 += 1
+
+        if message_counter_1 == message_threshold_1:
+            channel = message.channel
+            await channel.send(
+                '''**Не забудьте подписать на другие наши социальные сети нашего Discord-сервера:**
+◈ Game Room: Игроновинки: https://www.youtube.com/@GameRoom_news
+◈ Паблик ВКонтакте: https://vk.com/gameroom_news
+◈ Game Room Live: https://www.youtube.com/@GameRoom_Live''')
+            message_counter_1 = 0
+
+        if message_counter_2 == message_threshold_2:
+            channel = message.channel
+            await channel.send('''**Поддержите наш проект донатом:**  
+ↈ https://www.patreon.com/andremuhamad
+ↈ https://www.donationalerts.com/r/andremuhamad
+''')
+            message_counter_2 = 0
+
+    # Отвечаем на приветственное сообщение пользователя в определенном канале
+    if message.content.lower().startswith(
+            ('привет', 'хай', 'салют', 'привіт', 'всем ку', 'всем привет', 'здарова',
+             'приветствую', 'добрый день', 'ку', 'Hello', 'хаю хай', 'Hi',
+             'доброе утро', 'добрый вечер', 'бонжур', 'Рад встрече')):
+        response = 'Рады приветствовать вас. Мы очень рады видеть вас здесь и желаем, чтобы ваше время провождение было приятным и полным позитивной атмосферы. Если у вас возникнут вопросы или вам понадобится помощь, пожалуйста, не стесняйтесь обращаться к администраторам или модераторам через команду в боте. Мы также настоятельно просим вас соблюдать правила сервера.'
+
+        channel_id = 420868571422392325  # Замените YOUR_CHANNEL_ID на фактический ID вашего канала
+        if isinstance(message.channel, disnake.DMChannel):
+            await message.author.send(response)
+        elif message.channel.id == channel_id:
+            await message.channel.send(response)
+
+    # Отвечаем на сообщения пользователя в личных сообщениях
+    if message.author != bot.user and isinstance(message.channel, disnake.DMChannel):
+        response = "**Благодарю вас за сообщение! На данный момент бот не может общаться, так как занят работой круглосуточно на сервере:** https://discord.gg/pGkgzSKDxD"
+        await message.author.send(response)
+
+    await bot.process_commands(message)
+  
 
 @bot.slash_command(description="Отправить информацию о нарушении на сервере")
 async def отчёт(ctx: disnake.ApplicationCommandInteraction,
@@ -56,7 +117,7 @@ async def отчёт(ctx: disnake.ApplicationCommandInteraction,
 
     пользователь_заявник = ctx.author
 
-    отчет_msg = f"**{'### НАРУШЕНИЯ НА СЕРВЕРЕ'.upper()}**\n\nНа пользователя {пользователь.mention}была подана жалоба от {пользователь_заявник.mention}\n\n**Причина нарушения:**\n```{причина}```"
+    отчет_msg = f"**{'### НАРУШЕНИЯ НА СЕРВЕРЕ'.upper()}**На пользователя {пользователь.mention} была подана жалоба от {пользователь_заявник.mention}\n\n**Причина нарушения:**\n```{причина}```"
 
     if доказательство:
         отчет_msg += f"\n\n**Доказательство нарушения:**\n```{доказательство}```"
@@ -72,13 +133,14 @@ async def отчёт(ctx: disnake.ApplicationCommandInteraction,
     await пользователь_заявник.send(
         "Ваша жалоба была успешно отправлена: **Команде Game Room: Игроновинки**")
 
+
 @bot.slash_command(description="Отправить запрос на присоединение к команде")
 async def присоединиться(ctx: disnake.ApplicationCommandInteraction, кем: str, возраст: int):
     """Отправляет запрос на присоединение к команде"""
     канал = bot.get_channel(1175482013348806666)
     цвет = "#7d002c"
 
-    сообщение = f"### ЗАПРОС НА ПРИСОЕДИНЕНИЕ\n\nПользователь {ctx.author.mention}хочет присоединиться к команде\n\n**Роль:**\n```{кем}```\n**Возраст:**\n```{возраст} лет```"
+    сообщение = f"### ЗАПРОС НА ПРИСОЕДИНЕНИЕ\n\nПользователь {ctx.author.mention} хочет присоединиться к команде\n\n**Роль:**\n```{кем}```\n**Возраст:**\n```{возраст} лет```"
 
     embed = disnake.Embed(description=сообщение, color=int(цвет[1:], 16))
 
@@ -88,6 +150,7 @@ async def присоединиться(ctx: disnake.ApplicationCommandInteractio
         await sent_message.add_reaction('🔴')
 
         await ctx.author.send("Ваш запрос на присоединение успешно отправлен: **Команде Game Room: Игроновинки**")
+
 
 @bot.slash_command(description="Задать вопрос о сервере")
 async def помощ(ctx, вопрос: str, ссылка_на_ваш_скриншот: str = None):
@@ -110,7 +173,8 @@ async def помощ(ctx, вопрос: str, ссылка_на_ваш_скрин
 
         await пользователь.send(
             "Ваш вопрос был успешно отправлен: **Команде Game Room: Игроновинки**")
-      
+
+
 @bot.slash_command(description="Отправить идею для сервера или бота")
 async def идея(ctx: disnake.ApplicationCommandInteraction, категория: str, описание_идеи: str, ссылка_на_ваш_скриншот: str = None):
     канал = bot.get_channel(1175482399191204004)  # Замените на ID вашего канала для идей
@@ -133,6 +197,7 @@ async def идея(ctx: disnake.ApplicationCommandInteraction, категори�
 
         await пользователь.send(
             "Ваша идея была успешно отправлена: **Команде Game Room: Игроновинки**")
+
 
 @bot.slash_command(description="Не нажимай братан, а то...")
 async def пупупу(interaction: disnake.AppCmdInter):
@@ -189,8 +254,6 @@ async def фотка(context: disnake.ApplicationCommandInteraction):
   image_url = data[0]['url']
   await context.response.send_message(image_url)
 
-
-
 PLASH_API_KEY = "JU_FnZ9tmvKZ4xLX2POVUdg0GpU3uGc8lW-1GLp9EbE"
 
 @bot.slash_command(description="Отправляет фото твоего компьютера")
@@ -202,63 +265,6 @@ async def пк(context: disnake.ApplicationCommandInteraction):
   image_url = data['urls']['regular']
   await context.send(content=image_url)
 
-
-message_threshold_1 = 60
-message_counter_1 = 0
-message_threshold_2 = 40
-message_counter_2 = 0
-
-users = {}
-
-
-
-@bot.event
-async def on_message(message):
-  global message_counter_1, message_counter_2
-
-  # Проверяем, что сообщение не от бота и не в личных сообщениях
-  if not message.author.bot and isinstance(message.channel,disnake.TextChannel):
-    message_counter_1 += 1
-    message_counter_2 += 1
-
-    if message_counter_1 == message_threshold_1:
-      channel = message.channel
-      await channel.send(
-          '''**Не забудьте подписать на другие наши социальные сети нашего Discord-сервера:**
-◈ Game Room: Игроновинки: https://www.youtube.com/@GameRoom_news
-◈ Паблик ВКонтакте: https://vk.com/gameroom_news
-◈ Game Room Live: https://www.youtube.com/@GameRoom_Live''')
-      message_counter_1 = 0
-
-    if message_counter_2 == message_threshold_2:
-      channel = message.channel
-      await channel.send('''**Поддержите наш проект донатом:**  
-ↈ https://www.patreon.com/andremuhamad
-ↈ https://www.donationalerts.com/r/andremuhamad
-''')
-      message_counter_2 = 0
-
-  # Отвечаем на приветственное сообщение пользователя в определенном канале
-  if message.content.lower().startswith(
-      ('привет', 'хай', 'салют', 'привіт', 'всем ку', 'всем привет', 'здарова',
-       'приветствую', 'добрый день', 'ку', 'Hello', 'хаю хай', 'Hi',
-       'доброе утро', 'добрый вечер', 'бонжур', 'Рад встрече')):
-    response = 'Рады приветствовать вас. Мы очень рады видеть вас здесь и желаем, чтобы ваше время провождение было приятным и полным позитивной атмосферы. Если у вас возникнут вопросы или вам понадобится помощь, пожалуйста, не стесняйтесь обращаться к администраторам или модераторам через команду в боте. Мы также настоятельно просим вас соблюдать правила сервера.'
-
-    channel_id = 420868571422392325  # Замените YOUR_CHANNEL_ID на фактический ID вашего канала
-    if isinstance(message.channel, disnake.DMChannel):
-      await message.author.send(response)
-    elif message.channel.id == channel_id:
-      await message.channel.send(response)
-
-  # Отвечаем на сообщения пользователя в личных сообщениях
-  if message.author != bot.user and isinstance(message.channel,
-                                               disnake.DMChannel):
-    response = "**Благодарю вас за сообщение! На данный момент бот не может общаться, так как занят работой круглосуточно на сервере:** https://discord.gg/pGkgzSKDxD"
-    await message.author.send(response)
-
-  await bot.process_commands(message)
-
 openai.api_key = os.environ["OPENAI_API_KEY"]
 
 @bot.slash_command(description="Генерирует ответ в стиле GPT-3.5")
@@ -268,17 +274,20 @@ async def чат(ctx: disnake.ApplicationCommandInteraction, задача: str):
     await ctx.followup.send(response)
 
 async def generate_chat_response(user_input):
-    response = openai.Completion.create(
-        engine='text-davinci-003',
-        prompt=user_input,
-        max_tokens=120, # Максимальное количество токенов в ответе
-        temperature=0.8, # Контролирует разнообразие ответов (чем выше, тем разнообразнее)
-        n=1, # Количество сгенерированных ответов
-        stop=None,
+    from openai import ChatCompletion
+    completion = ChatCompletion.create(
+        model="text-davinci-003",
+        messages=[
+            {
+                "role": "system",
+                "content": user_input
+            }
+        ],
         api_key=openai.api_key
     )
-    result = response.choices[0].text.strip() if response.choices else "No response generated"
+    result = completion["choices"][0]["message"]["content"] if completion["choices"] else "No response generated"
     return result
+
 
 # Список игровых вопросов
 game_questions = [
@@ -569,10 +578,6 @@ async def uнтеграцию_канал(
   response_msg = f"Сообщение с интеграцией успешно отправлено в канал {канал.mention}"
   await ctx.response.send_message(response_msg, ephemeral=True)
 
-  # Пример вызова команды: /uнтеграцию_канал <канал> <цвет> <ссылка_на_фотографию> <сообщение> <верхнее_сообщение>
-  # Значение в угловых скобках <> замените на соответствующие значения при вызове команды.
-  # Например: /uнтеграцию_канал #general #7d002c https://example.com/image.jpg "Привет, мир!" "Важное объявление"
-
   return response.choices[0].text.strip()
 
 @bot.event
@@ -594,16 +599,7 @@ async def on_ready():
     else:
         print(f"Канал с ID {second_channel_id} не найден")
 
-@bot.event
-async def on_message(message):
-    if message.channel.id == 421382342595182602:  # Замените YOUR_CHANNEL_ID на ID вашего канала
-        emoji_ids = [1146196867982565497, 1146401819082379347, 1146223723746164757, 1146401807854223441, 1146196860176961653]  # Замените на ID ваших эмодзи
-        for emoji_id in emoji_ids:
-            emoji = bot.get_emoji(emoji_id)
-            if emoji:
-                await message.add_reaction(emoji)
-            else:
-                print(f"Emoji with ID {emoji_id} not found!")
+
 
 
 
@@ -649,6 +645,7 @@ async def on_voice_state_update(member, before, after):
         if before.channel.id in [channel.id for channel in bot_created_channels.values()]:
             await before.channel.delete()
             bot_created_channels = {k: v for k, v in bot_created_channels.items() if v.id != before.channel.id}
+
 
 
 
