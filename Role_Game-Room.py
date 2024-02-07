@@ -35,7 +35,7 @@ async def роль(ctx):
             "icon_url": "https://cdn.discordapp.com/attachments/990304018188369980/1146016243149701180/icon-partner.png?ex=655c7acc&is=654a05cc&hm=98a901d8e07d1aaa5e897f309279175c3d871917191190ef5ff8454f86f2c106&"
         },
         "image": {
-            "url": "https://cdn.discordapp.com/attachments/990304018188369980/1172988143566332005/Untitled-1.jpg?ex=65625156&is=654fdc56&hm=00b2b745e4d30aab48dbbe0e10b9d2272eba6ef9344a88453cc1d7d85e64085c&"
+            "url": "https://cdn.discordapp.com/attachments/1195867893594869857/1204876749624844328/a87567b8a682e9df.png?ex=65d653ea&is=65c3deea&hm=9ae93a90bc67839f9caa6aa70ac0653f69ee0bc72733f6f4da2a4fbed64da678&"
         }
     }
 
