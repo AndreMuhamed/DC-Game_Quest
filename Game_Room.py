@@ -1,15 +1,14 @@
-from keep_alive import keep_alive
 import disnake
 from disnake.ext import commands, tasks
 from disnake import PermissionOverwrite, Member, Guild, Activity, ActivityType
 import typing
 import discord
-import os
+import asyncio
 import datetime
 import random
 import requests
 import openai
-
+import os
 
 
 intents = discord.Intents.default()
@@ -21,27 +20,39 @@ intents.guilds = True #
 
 bot = commands.Bot(command_prefix="/", intents=disnake.Intents.all())
 
+@bot.event
+async def on_ready():
+    print(f"Бот запуснился как {bot.user} и готов выполнять команды")
+
 
 @bot.event
 async def on_member_join(member):
-  welcome_channel_id = 420868571422392325  # Замените это на ID канала, куда хотите отправлять приветственные сообщения
-  welcome_channel = bot.get_channel(welcome_channel_id)
+    # Ваш ID роли, которую нужно выдать при входе
+    role_id = 1195867892521123853  # Замените это на ID вашей роли
+    role = member.guild.get_role(role_id)
 
-  if welcome_channel is not None:
-    gif_url = "https://i.gifer.com/3OaZB.gif"  # Замените это на вашу ссылку на гифку
-    gif_response = requests.get(gif_url)
+    if role is not None:
+        await member.add_roles(role)
 
-    with open("welcome.gif", "wb") as f:
-      f.write(gif_response.content)
+    welcome_channel_id = 1195867893745860762  # Замените это на ID канала, куда хотите отправлять приветственные сообщения
+    welcome_channel = bot.get_channel(welcome_channel_id)
 
-    with open("welcome.gif", "rb") as f:
-      gif_file = disnake.File(f, filename="welcome.gif")
-      await welcome_channel.send(
-          f"Здравия желаю {member.mention}! Обязательно ознакомьтесь с правилами сервера, чтобы не упустить важную информацию. А чтобы найти дополнительный увлекательный контент, не забудьте пройти по разделам навигации. И не упустите шанс познакомиться с другими участниками — ведь за каждым никнеймом скрывается своя уникальная история и интересы!",
-          file=gif_file)
+    if welcome_channel is not None:
+        gif_url = "https://i.gifer.com/3OgpU.gif"  # Замените это на вашу ссылку на гифку
+        gif_response = requests.get(gif_url)
 
-    os.remove("welcome.gif")  # Удаляем временный файл после отправки
+        with open("welcome.gif", "wb") as f:
+            f.write(gif_response.content)
 
+        with open("welcome.gif", "rb") as f:
+            gif_file = disnake.File(f, filename="welcome.gif")
+            await welcome_channel.send(
+                f"Здравия желаю {member.mention}! Обязательно ознакомьтесь с правилами сервера, чтобы не пропустить важную информацию. Исследуйте разделы навигации для поиска дополнительного увлекательного контента. Также, не упустите возможность познакомиться с другими участниками — за каждым никнеймом таится своя уникальная история и интересы!",
+                file=gif_file)
+
+        os.remove("welcome.gif")  # Удаляем временный файл после отправки
+
+    
 
 message_threshold_1 = 60  # Измените на нужное вам значение
 message_counter_1 = 0
@@ -52,8 +63,8 @@ users = {}
 
 @bot.event
 async def on_message(message):
-    if message.channel.id == 421382342595182602:  # Замените YOUR_CHANNEL_ID на ID вашего канала
-        emoji_ids = [1146196867982565497, 1146401819082379347, 1146223723746164757, 1146401807854223441, 1146196860176961653]  # Замените на ID ваших эмодзи
+    if message.channel.id == 1195879709553209384:  # Замените YOUR_CHANNEL_ID на ID вашего канала
+        emoji_ids = [11111111111111, 1111111111111, 11111111111111, 11111111111111, 1111111111111111]  # Замените на ID ваших эмодзи
         for emoji_id in emoji_ids:
             emoji = bot.get_emoji(emoji_id)
             if emoji:
@@ -72,9 +83,8 @@ async def on_message(message):
             channel = message.channel
             await channel.send(
                 '''**Не забудьте подписать на другие наши социальные сети нашего Discord-сервера:**
-◈ Game Room: Игроновинки: https://www.youtube.com/@GameRoom_news
-◈ Паблик ВКонтакте: https://vk.com/gameroom_news
-◈ Game Room Live: https://www.youtube.com/@GameRoom_Live''')
+◈ YouTube Game Quest: https://www.youtube.com/@GameQuest_news
+◈ Telegram-группа: https://t.me/GameQuest_news''')
             message_counter_1 = 0
 
         if message_counter_2 == message_threshold_2:
@@ -88,11 +98,11 @@ async def on_message(message):
     # Отвечаем на приветственное сообщение пользователя в определенном канале
     if message.content.lower().startswith(
             ('привет', 'хай', 'салют', 'привіт', 'всем ку', 'всем привет', 'здарова',
-             'приветствую', 'добрый день', 'ку', 'Hello', 'хаю хай', 'Hi',
+             'приветствую', 'добрый день', 'здравствуйте', 'Hello', 'хаю хай', 'Hi',
              'доброе утро', 'добрый вечер', 'бонжур', 'Рад встрече')):
-        response = 'Рады приветствовать вас. Мы очень рады видеть вас здесь и желаем, чтобы ваше время провождение было приятным и полным позитивной атмосферы. Если у вас возникнут вопросы или вам понадобится помощь, пожалуйста, не стесняйтесь обращаться к администраторам или модераторам через команду в боте. Мы также настоятельно просим вас соблюдать правила сервера.'
+        response = 'Здравия желаю! Мы рады видеть вас здесь и надеемся, что ваше время пребывания будет приятным и наполненным позитивом. Если у вас возникнут вопросы или потребуется помощь, не стесняйтесь обращаться к администраторам или модераторам через бота. Также, пожалуйста, придерживайтесь правил сервера.'
 
-        channel_id = 420868571422392325  # Замените YOUR_CHANNEL_ID на фактический ID вашего канала
+        channel_id = 1195867893745860762  # Замените YOUR_CHANNEL_ID на фактический ID вашего канала
         if isinstance(message.channel, disnake.DMChannel):
             await message.author.send(response)
         elif message.channel.id == channel_id:
@@ -100,7 +110,7 @@ async def on_message(message):
 
     # Отвечаем на сообщения пользователя в личных сообщениях
     if message.author != bot.user and isinstance(message.channel, disnake.DMChannel):
-        response = "**Благодарю вас за сообщение! На данный момент бот не может общаться, так как занят работой круглосуточно на сервере:** https://discord.gg/pGkgzSKDxD"
+        response = "**Благодарю за ваше сообщение! В настоящее время бот занят и не может вести разговор, так как активно работает на сервере:** https://discord.gg/nQGvVAEw5r"
         await message.author.send(response)
 
     await bot.process_commands(message)
@@ -112,15 +122,15 @@ async def отчёт(ctx: disnake.ApplicationCommandInteraction,
                 причина: str,
                 доказательство: str = None):
     """Отправляет интеграцию в фиксированный канал жалоб"""
-    канал = bot.get_channel(1175480769364373725)
-    цвет = "#7d002c"
+    канал = bot.get_channel(1200967683110338560)
+    цвет = "#C80147"
 
     пользователь_заявник = ctx.author
 
     отчет_msg = f"**{'### НАРУШЕНИЯ НА СЕРВЕРЕ'.upper()}**На пользователя {пользователь.mention} была подана жалоба от {пользователь_заявник.mention}\n\n**Причина нарушения:**\n```{причина}```"
 
     if доказательство:
-        отчет_msg += f"\n\n**Доказательство нарушения:**\n```{доказательство}```"
+        отчет_msg += f"\n**Доказательство нарушения:**\n```{доказательство}```"
 
     embed = disnake.Embed(description=отчет_msg, color=int(цвет[1:], 16))
 
@@ -131,14 +141,14 @@ async def отчёт(ctx: disnake.ApplicationCommandInteraction,
             await message.add_reaction(emoji)
 
     await пользователь_заявник.send(
-        "Ваша жалоба была успешно отправлена: **Команде Game Room: Игроновинки**")
+        "Ваша жалоба была успешно отправлена: **Команде Game Quest**")
 
 
 @bot.slash_command(description="Отправить запрос на присоединение к команде")
 async def присоединиться(ctx: disnake.ApplicationCommandInteraction, кем: str, возраст: int):
     """Отправляет запрос на присоединение к команде"""
-    канал = bot.get_channel(1175482013348806666)
-    цвет = "#7d002c"
+    канал = bot.get_channel(1200965072093184051)
+    цвет = "#C80147"
 
     сообщение = f"### ЗАПРОС НА ПРИСОЕДИНЕНИЕ\n\nПользователь {ctx.author.mention} хочет присоединиться к команде\n\n**Роль:**\n```{кем}```\n**Возраст:**\n```{возраст} лет```"
 
@@ -149,22 +159,22 @@ async def присоединиться(ctx: disnake.ApplicationCommandInteractio
         await sent_message.add_reaction('🟢')
         await sent_message.add_reaction('🔴')
 
-        await ctx.author.send("Ваш запрос на присоединение успешно отправлен: **Команде Game Room: Игроновинки**")
+        await ctx.author.send("Ваш запрос на присоединение успешно отправлен: **Команде Game Quest**")
 
 
 @bot.slash_command(description="Задать вопрос о сервере")
 async def помощ(ctx, вопрос: str, ссылка_на_ваш_скриншот: str = None):
-    канал = bot.get_channel(1175481819731329054)
+    канал = bot.get_channel(1200962301143044096)
     пользователь = ctx.author
 
     вопрос_msg = f"### ВОПРОСЫ О СЕРВЕРЕ\n\nИнтересный вопрос о сообществе от: {пользователь.mention}\n\n**Вопрос:**\n```{вопрос}```"
 
-    цвет = "#7d002c"
+    цвет = "#C80147"
 
     embed = disnake.Embed(description=вопрос_msg, color=int(цвет[1:], 16))
 
     if ссылка_на_ваш_скриншот:
-        embed.add_field(name="\n**Дополнительная информация:**", value=f"```{ссылка_на_ваш_скриншот}```", inline=False)
+        embed.add_field(name="\n\n**Дополнительная информация:**", value=f"```{ссылка_на_ваш_скриншот}```", inline=False)
 
     if канал:
         sent_message = await канал.send(embed=embed)
@@ -172,23 +182,23 @@ async def помощ(ctx, вопрос: str, ссылка_на_ваш_скрин
         await sent_message.add_reaction('🔴')
 
         await пользователь.send(
-            "Ваш вопрос был успешно отправлен: **Команде Game Room: Игроновинки**")
+            "Ваш вопрос был успешно отправлен: **Команде Game Quest**")
 
 
 @bot.slash_command(description="Отправить идею для сервера или бота")
 async def идея(ctx: disnake.ApplicationCommandInteraction, категория: str, описание_идеи: str, ссылка_на_ваш_скриншот: str = None):
-    канал = bot.get_channel(1175482399191204004)  # Замените на ID вашего канала для идей
+    канал = bot.get_channel(1200960162706505930)  # Замените на ID вашего канала для идей
 
     пользователь = ctx.author
 
     идея_msg = f"### ИДЕИ ДЛЯ СЕРВЕРА\n\nПользователь {пользователь.mention} предложил модель для развития\n\n**Категория:** \n```{категория}```\n**Описание идеи:**\n```{описание_идеи}```"
 
-    цвет = "#7d002c"
+    цвет = "#C80147"
 
     embed = disnake.Embed(description=идея_msg, color=int(цвет[1:], 16))
 
     if ссылка_на_ваш_скриншот:
-        embed.add_field(name="\n**Дополнительная информация:**", value=f"```{ссылка_на_ваш_скриншот}```", inline=False)
+        embed.add_field(name="\n\n**Дополнительная информация:**", value=f"```{ссылка_на_ваш_скриншот}```", inline=False)
 
     if канал:
         sent_message = await канал.send(embed=embed)
@@ -196,7 +206,7 @@ async def идея(ctx: disnake.ApplicationCommandInteraction, категори�
         await sent_message.add_reaction('🔴')
 
         await пользователь.send(
-            "Ваша идея была успешно отправлена: **Команде Game Room: Игроновинки**")
+            "Ваша идея была успешно отправлена: **Команде Game Quest**")
 
 
 @bot.slash_command(description="Не нажимай братан, а то...")
@@ -240,32 +250,182 @@ anecdotes = [
     "Почему герой из RPG всегда говорит в повелительном наклонении? Потому что ему нельзя отказаться от квестов!",
 ]
 
-
 @bot.slash_command(description="Отправляем анекдоты")
 async def анекдот(ctx: disnake.ApplicationCommandInteraction):
   random_анекдот = random.choice(anecdotes)
   await ctx.response.send_message(random_анекдот)
 
+PLASH_KEY = "токен unsplash"  # Замените на свой ключ
 
+@bot.slash_command(description="Отправляет фото реальную машины")
+async def кибертрак(context: disnake.ApplicationCommandInteraction):
+    try:
+        # Отложенный ответ
+        await context.response.defer()
+
+        response = requests.get(
+            f'https://api.unsplash.com/photos/random?query=car&client_id={PLASH_KEY}'
+        )
+        response.raise_for_status()  # Проверка наличия ошибок в ответе
+
+        data = response.json()
+        image_url = data['urls']['regular']
+
+        # Отправка конечного ответа
+        await context.edit_original_message(content=image_url)
+
+    except requests.exceptions.HTTPError as errh:
+        await context.edit_original_message(content=f"HTTP Error: {errh}")
+    except requests.exceptions.ConnectionError as errc:
+        await context.edit_original_message(content=f"Error Connecting: {errc}")
+    except requests.exceptions.Timeout as errt:
+        await context.edit_original_message(content=f"Timeout Error: {errt}")
+    except requests.exceptions.RequestException as err:
+        await context.edit_original_message(content=f"Something went wrong: {err}")   
+    
 @bot.slash_command(description="Отправляем твою крутую фотку")
-async def фотка(context: disnake.ApplicationCommandInteraction):
-  response = requests.get('https://api.thecatapi.com/v1/images/search')
-  data = response.json()
-  image_url = data[0]['url']
-  await context.response.send_message(image_url)
+async def фотка(ctx: disnake.ApplicationCommandInteraction):
+    try:
+        # Отложенный ответ
+        await ctx.response.defer()
 
-PLASH_API_KEY = "JU_FnZ9tmvKZ4xLX2POVUdg0GpU3uGc8lW-1GLp9EbE"
+        # Запрос к API для получения случайной фотографии кота
+        response = requests.get('https://api.thecatapi.com/v1/images/search')
+        data = response.json()
+        image_url = data[0]['url']
+
+        # Отправьте изображение в текстовый канал
+        await ctx.send(content=image_url)
+    except Exception as e:
+        # Обработка ошибок, если что-то пошло не так
+        await ctx.send(f"Произошла ошибка: {e}")
+
+    
+PLASH_API_KEY = "токен unsplash"  # Замените на свой ключ
 
 @bot.slash_command(description="Отправляет фото твоего компьютера")
 async def пк(context: disnake.ApplicationCommandInteraction):
-  response = requests.get(
-      f'https://api.unsplash.com/photos/random?query=computer&client_id={PLASH_API_KEY}'
-  )
-  data = response.json()
-  image_url = data['urls']['regular']
-  await context.send(content=image_url)
+    try:
+        # Отложенный ответ
+        await context.response.defer()
 
-openai.api_key = os.environ["OPENAI_API_KEY"]
+        response = requests.get(
+            f'https://api.unsplash.com/photos/random?query=computer&client_id={PLASH_API_KEY}'
+        )
+        response.raise_for_status()  # Проверка наличия ошибок в ответе
+
+        data = response.json()
+        image_url = data['urls']['regular']
+
+        # Отправка конечного ответа
+        await context.edit_original_message(content=image_url)
+
+    except requests.exceptions.HTTPError as errh:
+        await context.edit_original_message(content=f"HTTP Error: {errh}")
+    except requests.exceptions.ConnectionError as errc:
+        await context.edit_original_message(content=f"Error Connecting: {errc}")
+    except requests.exceptions.Timeout as errt:
+        await context.edit_original_message(content=f"Timeout Error: {errt}")
+    except requests.exceptions.RequestException as err:
+        await context.edit_original_message(content=f"Something went wrong: {err}")
+        
+
+ASH_API_KEY = "токен unsplash"  # Замените на свой ключ доступа Unsplash
+
+@bot.slash_command(description="Отправляет случайное фото")
+async def картина(ctx: disnake.ApplicationCommandInteraction):
+    try:
+        # Откладываем ответ, чтобы Discord знал, что бот обрабатывает команду
+        await ctx.response.defer()
+
+        # Делаем запрос к API Unsplash для получения случайного изображения
+        headers = {
+            "Authorization": f"Client-ID {ASH_API_KEY}"
+        }
+        response = requests.get('https://api.unsplash.com/photos/random', headers=headers)
+        response.raise_for_status()  # Проверяем наличие ошибок в ответе
+
+        data = response.json()
+        image_url = data['urls']['regular']
+
+        # Отправляем изображение в текстовый канал
+        await ctx.send(content=image_url)
+    except requests.exceptions.HTTPError as errh:
+        await ctx.send(f"HTTP-ошибка: {errh}")
+    except requests.exceptions.ConnectionError as errc:
+        await ctx.send(f"Ошибка подключения: {errc}")
+    except requests.exceptions.Timeout as errt:
+        await ctx.send(f"Ошибка таймаута: {errt}")
+    except requests.exceptions.RequestException as err:
+        await ctx.send(f"Что-то пошло не так: {err}")
+    
+
+UNSPLASH_ACCESS_KEY = "токен unsplash"  # Замените на свой ключ доступа Unsplash
+
+@bot.slash_command(description="Отправляет фото игрового фона")
+async def игрофон(ctx: disnake.ApplicationCommandInteraction):
+    try:
+        # Отложите ответ, чтобы сообщить Discord, что бот работает над ним
+        await ctx.response.defer()
+
+        # Сделайте запрос к API Unsplash для получения случайного игрового обоя
+        response = requests.get(
+            f'https://api.unsplash.com/photos/random?query=gaming%20wallpaper&client_id={UNSPLASH_ACCESS_KEY}'
+        )
+        response.raise_for_status()  # Проверьте наличие ошибок в ответе
+
+        data = response.json()
+        image_url = data['urls']['regular']
+
+        # Отправьте изображение в текстовый канал
+        await ctx.send(content=image_url)
+    except requests.exceptions.HTTPError as errh:
+        await ctx.send(f"HTTP-ошибка: {errh}")
+    except requests.exceptions.ConnectionError as errc:
+        await ctx.send(f"Ошибка подключения: {errc}")
+    except requests.exceptions.Timeout as errt:
+        await ctx.send(f"Ошибка тайм-аута: {errt}")
+    except requests.exceptions.RequestException as err:
+        await ctx.send(f"Что-то пошло не так: {err}")
+
+
+UNSPLASH_ACCESS_KEY = "токен unsplash"  # Замените на ваш ключ доступа Unsplash
+USER_TO_FETCH = "andre_muhamed"  # Замените на имя пользователя на Unsplash
+
+@bot.slash_command(description="Отправляет сгенерированного персонажа")
+async def нейроперс(ctx: disnake.ApplicationCommandInteraction):
+    try:
+        # Отложите ответ, чтобы сообщить Discord, что бот работает над ним
+        await ctx.response.defer()
+
+        # Получаем все фотографии пользователя
+        photo_response = requests.get(
+            f'https://api.unsplash.com/users/{USER_TO_FETCH}/photos?client_id={UNSPLASH_ACCESS_KEY}'
+        )
+        photo_response.raise_for_status()
+
+        photo_data = photo_response.json()
+
+        if photo_data:
+            # Выбираем случайное изображение
+            random_photo = random.choice(photo_data)
+            image_url = random_photo['urls']['regular']
+
+            # Отправляем изображение в текстовый канал
+            await ctx.send(content=image_url)
+        else:
+            await ctx.send("У пользователя нет фотографий на Unsplash.")
+    except requests.exceptions.HTTPError as errh:
+        await ctx.send(f"HTTP-ошибка: {errh}")
+    except requests.exceptions.ConnectionError as errc:
+        await ctx.send(f"Ошибка подключения: {errc}")
+    except requests.exceptions.Timeout as errt:
+        await ctx.send(f"Ошибка тайм-аута: {errt}")
+    except requests.exceptions.RequestException as err:
+        await ctx.send(f"Что-то пошло не так: {err}")
+        
+
+openai.api_key = "токен чатаджепети"
 
 @bot.slash_command(description="Генерирует ответ в стиле GPT-3.5")
 async def чат(ctx: disnake.ApplicationCommandInteraction, задача: str):
@@ -273,20 +433,17 @@ async def чат(ctx: disnake.ApplicationCommandInteraction, задача: str):
     response = await generate_chat_response(задача)
     await ctx.followup.send(response)
 
-async def generate_chat_response(user_input):
-    from openai import ChatCompletion
-    completion = ChatCompletion.create(
-        model="text-davinci-003",
-        messages=[
-            {
-                "role": "system",
-                "content": user_input
-            }
-        ],
-        api_key=openai.api_key
-    )
-    result = completion["choices"][0]["message"]["content"] if completion["choices"] else "No response generated"
-    return result
+async def generate_chat_response(задача):
+    try:
+        completion = await openai.Completion.create(
+            engine="text-davinci-003",
+            prompt=задача,
+            api_key=openai.api_key
+        )
+        result = completion.choices[0].text if completion.choices else "No response generated"
+        return result
+    except openai.error.OpenAIError as e:
+        return f"An error occurred: {e}"
 
 
 # Список игровых вопросов
@@ -340,9 +497,9 @@ game_questions = [
 
 
 @bot.slash_command(description="Вопрос для размышления и обсуждения")
-async def вопросдня(ctx: disnake.ApplicationCommandInteraction):
+async def вопросник(ctx: disnake.ApplicationCommandInteraction):
   today = datetime.date.today()
-  random.seed(today.year * 1000 +
+  random.seed(today.year * 350 +
               today.timetuple().tm_yday)  # Фиксируем вопрос на день
 
   question = random.choice(game_questions)
@@ -461,16 +618,16 @@ async def рассылка(ctx: disnake.ApplicationCommandInteraction, *,
 
 @bot.event
 async def on_raw_reaction_add(payload):
-  ваш_идентификатор_сообщения = 1173357569780224050
+  ваш_идентификатор_сообщения = 1195891792810356787
   реакции_и_роли = {
-      '⬜': 1173012037459259392,  # GTA V
-      '🟨': 1173012131843682385,  # Dota 2
-      '🟧': 1173012240841068584,  # CS:GO
-      '🟥': 1173012306096046151,  # Rust
-      '🟩': 1173012366095564830,  # Minecraft
-      '🟫': 1173012438824779806,  # Call of Duty
-      '🟦': 1173012498526515370,  # Battlefield
-      '🟪': 1173012546937176144,  # Другие игры
+      '⬜': 1195867892504350831,  # GTA V
+      '🟨': 1195867892063940678,  # Dota 2
+      '🟧': 1195867892063940677,  # CS:GO 2
+      '🟥': 1195867892063940676,  # Rust
+      '🟩': 1195867892063940675,  # Minecraft
+      '🟫': 1195867892063940674,  # Call of Duty
+      '🟦': 1195867892063940673,  # Battlefield
+      '🟪': 1195867892063940672,  # Другие игры
   }
 
   if payload.message_id == ваш_идентификатор_сообщения and payload.emoji.name in реакции_и_роли:
@@ -500,16 +657,16 @@ async def on_raw_reaction_add(payload):
 
 @bot.event
 async def on_raw_reaction_remove(payload):
-  ваш_идентификатор_сообщения = 1173357569780224050
+  ваш_идентификатор_сообщения = 1195891792810356787
   реакции_и_роли = {
-      '⬜': 1173012037459259392,  # GTA V
-      '🟨': 1173012131843682385,  # Dota 2
-      '🟧': 1173012240841068584,  # CS:GO
-      '🟥': 1173012306096046151,  # Rust
-      '🟩': 1173012366095564830,  # Minecraft
-      '🟫': 1173012438824779806,  # Call of Duty
-      '🟦': 1173012498526515370,  # Battlefield
-      '🟪': 1173012546937176144,  # Другие игры
+      '⬜': 1195867892504350831,  # GTA V
+      '🟨': 1195867892063940678,  # Dota 2
+      '🟧': 1195867892063940677,  # CS:GO 2
+      '🟥': 1195867892063940676,  # Rust
+      '🟩': 1195867892063940675,  # Minecraft
+      '🟫': 1195867892063940674,  # Call of Duty
+      '🟦': 1195867892063940673,  # Battlefield
+      '🟪': 1195867892063940672,  # Другие игры
   }
 
   if payload.message_id == ваш_идентификатор_сообщения and payload.emoji.name in реакции_и_роли:
@@ -554,7 +711,7 @@ async def uнтеграцию_канал(
     ссылка_на_фотографию: str,
     сообщение: str,
     верхнее_сообщение:
-    str = "<@&990306177617395713>, в команды Game Room: Игроновинки, имеются значимые обновления, которыми мы хотели бы поделиться",
+    str = "<@&1195867892521123853>, в команды Game Quest, имеются значимые обновления, которыми мы хотели бы поделиться",
     вторая_строка: str = None):
   """Отправить интеграцию в канал"""
   # Проверка на правильный формат шестнадцатеричного кода цвета
@@ -580,24 +737,78 @@ async def uнтеграцию_канал(
 
   return response.choices[0].text.strip()
 
-@bot.event
-async def on_ready():
-    print(f"Бот запуснился як {bot.user}")
+@bot.slash_command(description="Приглашение к оценке сервера")
+async def прокачка(ctx: disnake.ApplicationCommandInteraction):
+    # Ваше сообщение с приглашением к оценке сервера
+    message = "Дайте оценку нашему серверу, если не сложно:\n\n" \
+              "※ DiscordServer.Info: https://discordserver.info/1195867892063940671\n" \
+              "※ ServerDiscord: https://server-discord.com/1195867892063940671"
 
-    activity = Activity(type=ActivityType.watching, name="Game Room: Игроновинки")
-    await bot.change_presence(activity=activity)
+    # Отправляем сообщение в текстовый канал
+    await ctx.send(content=message)
 
-    second_channel_id = 1172167660298063964  # Замените ID другого голосового канала
-    second_channel = bot.get_channel(second_channel_id)
+@bot.slash_command(description="Приглашение к социальным сетям")
+async def соцсеть(ctx: disnake.ApplicationCommandInteraction):
+    # Ваша ссылка на социальные сети
+    social_media_link = "https://bit.ly/3Px7sCH"
 
-    if second_channel:
-        try:
-            await second_channel.connect()
-            print(f"Успешное подключение к {second_channel.name}")
-        except Exception as e:
-            print(f"Ошибка при подключении к каналу {second_channel}: {e}")
-    else:
-        print(f"Канал с ID {second_channel_id} не найден")
+    # Отправляем сообщение с ссылкой
+    await ctx.send(content=f"Присоединяйтесь к нашим сообществам в социальных сетях:\n{social_media_link}")
+    
+@bot.slash_command(description="Поддержите наш проект донатом")
+async def донат(ctx: disnake.ApplicationCommandInteraction):
+    # Ваши ссылки на донат
+    patreon_link = "https://www.patreon.com/andremuhamad"
+    donationalerts_link = "https://www.donationalerts.com/r/andremuhamad"
+
+    # Отправляем сообщение с ссылками на донат
+    await ctx.send(content=f"**Поддержите наш проект донатом:**\nↈ {donationalerts_link}\nↈ {patreon_link}")
+    
+@bot.slash_command(description="Поднимает настроение участнику сервера")
+async def грусно(ctx: disnake.ApplicationCommandInteraction):
+    uplifting_messages = [
+        "Забудь об облаках, давай вместе посмотрим на яркую сторону жизни!",
+        "Сегодня может быть серым, но завтра обещает быть ярче и лучше!",
+        "Помни, что ты уникален и способен на великие дела!",
+        "Улыбнись, и весь мир вокруг тебя станет светлее!",
+        "Время от времени даже самые темные облака пропускают солнечные лучи. Так что держись!",
+        "Не грусти, всегда есть место для радости!",
+        "Жизнь прекрасна, особенно с тобой в ней!",
+        "Веселись! Завтра будет лучше!",
+        "Улыбнись, и весь мир улыбнется в ответ!",
+        "Не переживай, лучшие моменты еще впереди!",
+        "Не позволяйте темным мыслям завладеть вашим светлым днем!",
+        "Сегодня может быть тяжело, но завтра придет новый день полный возможностей!",
+        "Ты умеешь преодолевать трудности. Верь в себя!",
+        "Не забывай, что у тебя есть поддержка вокруг. Мы здесь для тебя!",
+        "Даже самый трудный день заканчивается. Всегда есть шанс на лучший завтра!",
+        "Ты сильнее, чем думаешь, и способен на большее, чем представляешь!",
+        "Помни, что каждый шаг к лучшему находится в тебе!",
+        "Улыбнись, и весь мир улыбнется в ответ!"
+    ]
+
+    uplifting_message = random.choice(uplifting_messages)
+    await ctx.send(content=uplifting_message)    
+    
+@bot.slash_command(description="Показывает команду Game Quest")
+async def создатели(ctx: disnake.ApplicationCommandInteraction):
+    creators_info = {
+        "Андрей Мухамед": "https://vk.com/addmirall_times",
+        "Михаил Михайлов": "https://vk.com/mihatosno",
+        "Елена Калинина": "https://vk.com/id6422484",
+        
+        # Добавьте нужное количество персонажей и их ссылок
+    }
+
+    creators_message = "\n".join([f"{creator}: {link}" for creator, link in creators_info.items()])
+    await ctx.send(content=creators_message)   
+    
+@bot.slash_command(description="Показывает задержкe бота")
+async def пинг(ctx: disnake.ApplicationCommandInteraction):
+    latency = round(bot.latency * 1000)  # Пинг в миллисекундах
+    await ctx.send(f'Задержка бота: `{latency}` мс')    
+
+         
 
 
 
@@ -610,8 +821,10 @@ async def on_ready():
 
 
 
-special_channel_id = 1180547378030313592  # ID специального голосового канала
-category_id = 1180115281104863292  # ID категории для создания канала
+
+
+special_channel_id = 1195867893938794651  # ID специального голосового канала
+category_id = 1195867893938794650  # ID категории для создания канала
 bot_created_channels = {}  # Словарь для хранения ссылок на созданные каналы
 
 @bot.event
@@ -706,8 +919,4 @@ async def on_voice_state_update(member, before, after):
 
 
 
-
-
-
-keep_alive()
-bot.run(os.environ["Token"])
+bot.run("ТВОЙ ТОКЕН БОТА")
