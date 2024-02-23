@@ -2,7 +2,14 @@
 👓 Discord bot hosting 👓
 </h1>
 
+---
+
 # <a id="navigator"></a>🔮 » Navigator
+- [🛠・Registration](#registration)
+- [💻・Creation servers](#сreation)
+- [⚙️・Setting servers](#іetting)
+- [🔧・Launching servers](#launching)
+- [🕵️・Responsibility](#responsibility)
 
 
 
