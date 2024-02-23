@@ -9,13 +9,13 @@
 
 ---
 
-## <a id="menu"></a>🦾 » Menu
+# <a id="menu"></a>🦾 » Menu
 - [🎮・Discord](https://discord.gg/nQGvVAEw5r)
 - [🛠・Features](#features)
 - [🎉・Setting up](#setup)
 - [🕵️・Responsibility](#responsibility)
 
-## <a id="features"></a>🛠 » Features
+# <a id="features"></a>🛠 » Features
 
 ## 📝basis.py
 This code snippet utilizes the `threading` and `subprocess` modules to concurrently execute multiple Python scripts in separate threads.
@@ -30,7 +30,7 @@ This code snippet utilizes the `threading` and `subprocess` modules to concurren
 
 5. The main program continues execution without waiting for the threads to complete and prints a message indicating that the Discord bot and other files have been launched.
 
-## 📝file3.py
+# 📝file3.py
 This Python script is a Discord bot programmed using the `discord.py` library. Here's a breakdown of what it does:
 
 1. It imports necessary modules including `discord`, `commands` from `discord.ext`, `os`, `random`, and `asyncio`.
@@ -65,7 +65,7 @@ This Python script is a Discord bot programmed using the `discord.py` library. H
 
 Overall, this script creates a Discord bot capable of playing music in a voice channel, responding to commands, and deleting messages that start with the specified command prefix. Additionally, it defines commands that provide information or perform specific actions when invoked by users in the Discord server.
 
-## <a id="responsibility"></a>🕵️ » Responsibility
+# <a id="responsibility"></a>🕵️ » Responsibility
 The developers of this Discord bot code strive to create a product that operates as stably and reliably as possible. However, it should be noted that full functionality and reliability cannot be guaranteed due to the complexity of interactions with various components and services, as well as the influence of user settings and environments. Users should be prepared for possible failures and changes, so it makes sense to have alternative plans in place to ensure the uninterrupted operation of their projects.
 
 <h1 align="center">
