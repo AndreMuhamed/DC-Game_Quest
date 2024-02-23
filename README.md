@@ -1,4 +1,4 @@
-# An amazing bot from Andrey Muhammed's team for the Discord server:  
+🎯 An amazing bot from the Game Quest team for your Discord server 🎮
 
 ![image](https://github.com/AndreMuhamed/Game_Quest/assets/128980327/3ca9c1f9-0da9-4315-877e-28f1a450169f)
 
