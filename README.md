@@ -9,7 +9,7 @@
 
 ---
 
-## <a id="menu"></a>🔮 » Menu
+## <a id="menu"></a>🦾 » Menu
 - [💽・Deploys](#deploys)
 - [🛠・Features](#features)
 - [🎮・Discord](https://discord.gg/nQGvVAEw5r)
