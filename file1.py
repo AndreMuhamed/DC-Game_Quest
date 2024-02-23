@@ -362,7 +362,7 @@ async def картина(ctx: disnake.ApplicationCommandInteraction):
         await ctx.send(f"Что-то пошло не так: {err}")
     
 
-UNSPLASH_ACCESS_KEY = "EGHJTDx3dSJ6wfIw5gaqS3axE6Ubtp-epzrPc3h9NDM"  # Замените на свой ключ доступа Unsplash
+UNSPLASH_ACCESS_KEY = "ТОКЕН unsplash"  # Замените на свой ключ доступа Unsplash
 
 @bot.slash_command(description="Отправляет фото игровой тематики")
 async def игромен(ctx: disnake.ApplicationCommandInteraction):
@@ -397,7 +397,7 @@ async def нейроперс(ctx: disnake.ApplicationCommandInteraction):
         await ctx.response.defer()
 
         # Путь к папке с изображениями на вашем хостинге
-        folder_path = "/home/container/нейро_обои"
+        folder_path = "/путь_к_файлу/нейро_обои"
 
         # Получить список файлов в папке
         image_files = os.listdir(folder_path)
@@ -423,7 +423,7 @@ async def обои(ctx: disnake.ApplicationCommandInteraction):
         await ctx.response.defer()
 
         # Путь к папке с изображениями на рабочем столе
-        folder_path = "/home/container/пк_обои"
+        folder_path = "/путь_к_файлу/пк_обои"
 
         # Получить список файлов в папке
         image_files = os.listdir(folder_path)
