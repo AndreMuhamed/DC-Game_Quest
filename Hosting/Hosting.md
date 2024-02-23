@@ -8,16 +8,7 @@ The bot is hosted on this free service (https://replit.com/@AndreMuhamed) and co
 
 # Hosting_UA:
 
-Бот розміщується на цьому безкоштовному сервісі (https://replit.com/@AndreMuhamed) та контролюється за допомогою іншого сервера (https://uptimerobot.com/dashboard), тому працює цілодобово та без вихідних. І найголовніше, що все безкоштовно!
-
-
-
-
-
-https://github.com/AndreMuhamed/Game_Quest/assets/128980327/b1baf5e6-de45-4e83-87db-aaa913701481
-
-
-
+Бот розміщується на цьому безкоштовному сервісі (https://replit.com/@AndreMuhamed) та контролюється за допомогою іншого сервера (https://uptimerobot.com/dashboard), тому працює цілодобово та без вихідних. І найголовніше, що все безкоштовно
 
 
 
@@ -25,4 +16,12 @@ https://github.com/AndreMuhamed/Game_Quest/assets/128980327/b1baf5e6-de45-4e83-8
 
 
 https://github.com/AndreMuhamed/Game_Quest/assets/128980327/62424d4b-078d-41da-b20f-eb7346b7d867
+
+
+
+
+
+https://github.com/AndreMuhamed/Game_Quest/assets/128980327/77e8d7b1-190f-4187-8948-4e21e3dbf048
+
+
 
