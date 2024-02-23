@@ -24,9 +24,9 @@ In the top right corner of the page, you will see the 'Register' button. After c
 4. Don't forget to agree to the rules by clicking on the corresponding checkbox.
 5. Complete the registration by clicking the 'Register' button.
 
-And now you are successfully registered on the hosting!
-
 ![image](https://github.com/AndreMuhamed/Game_Quest/assets/128980327/63364f1a-9312-445f-ba16-f2b044dcdb00)
+
+And now you are successfully registered on the hosting!
 
 
 
