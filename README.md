@@ -15,6 +15,10 @@
 - [🌌・Discord](https://discord.gg/nQGvVAEw5r)
 - [🎉・Setting up](#setup)
 
+## <a id="features"></a>🛠 » Features
+
+###
+
 
 # I am not responsible for the functionality of the bot.
 
