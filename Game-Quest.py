@@ -1,10 +1,11 @@
 import disnake
 from disnake.ext import commands, tasks
 from disnake import PermissionOverwrite, Member, Guild, Activity, ActivityType
+from datetime import datetime, timedelta
 import typing
+import time
 import discord
 import asyncio
-import datetime
 import random
 import requests
 import openai
@@ -13,10 +14,11 @@ import os
 
 intents = discord.Intents.default()
 intents.members = True
+intents.messages = True
 intents.message_content = True
 intents.presences = True
-intents.voice_states = True #
-intents.guilds = True #
+intents.voice_states = True 
+intents.guilds = True 
 
 bot = commands.Bot(command_prefix="/", intents=disnake.Intents.all())
 
@@ -250,14 +252,14 @@ anecdotes = [
     "Почему герой из RPG всегда говорит в повелительном наклонении? Потому что ему нельзя отказаться от квестов!",
 ]
 
-@bot.slash_command(description="Отправляем анекдоты")
+@bot.slash_command(description="Отправляет анекдоты игровой тематики")
 async def анекдот(ctx: disnake.ApplicationCommandInteraction):
   random_анекдот = random.choice(anecdotes)
   await ctx.response.send_message(random_анекдот)
 
-PLASH_KEY = "токен unsplash"  # Замените на свой ключ
+PLASH_KEY = "ТОКЕН unsplash"  # Замените на свой ключ
 
-@bot.slash_command(description="Отправляет фото реальную машины")
+@bot.slash_command(description="Отправляет фото реальной машины")
 async def кибертрак(context: disnake.ApplicationCommandInteraction):
     try:
         # Отложенный ответ
@@ -283,7 +285,7 @@ async def кибертрак(context: disnake.ApplicationCommandInteraction):
     except requests.exceptions.RequestException as err:
         await context.edit_original_message(content=f"Something went wrong: {err}")   
     
-@bot.slash_command(description="Отправляем твою крутую фотку")
+@bot.slash_command(description="Отправляет крутую фотку")
 async def фотка(ctx: disnake.ApplicationCommandInteraction):
     try:
         # Отложенный ответ
@@ -301,9 +303,9 @@ async def фотка(ctx: disnake.ApplicationCommandInteraction):
         await ctx.send(f"Произошла ошибка: {e}")
 
     
-PLASH_API_KEY = "токен unsplash"  # Замените на свой ключ
+PLASH_API_KEY = "ТОКЕН unsplash"  # Замените на свой ключ
 
-@bot.slash_command(description="Отправляет фото твоего компьютера")
+@bot.slash_command(description="Отправляет фото компьютера")
 async def пк(context: disnake.ApplicationCommandInteraction):
     try:
         # Отложенный ответ
@@ -330,7 +332,7 @@ async def пк(context: disnake.ApplicationCommandInteraction):
         await context.edit_original_message(content=f"Something went wrong: {err}")
         
 
-ASH_API_KEY = "токен unsplash"  # Замените на свой ключ доступа Unsplash
+ASH_API_KEY = "ТОКЕН unsplash"  # Замените на свой ключ доступа Unsplash
 
 @bot.slash_command(description="Отправляет случайное фото")
 async def картина(ctx: disnake.ApplicationCommandInteraction):
@@ -360,10 +362,10 @@ async def картина(ctx: disnake.ApplicationCommandInteraction):
         await ctx.send(f"Что-то пошло не так: {err}")
     
 
-UNSPLASH_ACCESS_KEY = "токен unsplash"  # Замените на свой ключ доступа Unsplash
+UNSPLASH_ACCESS_KEY = "EGHJTDx3dSJ6wfIw5gaqS3axE6Ubtp-epzrPc3h9NDM"  # Замените на свой ключ доступа Unsplash
 
-@bot.slash_command(description="Отправляет фото игрового фона")
-async def игрофон(ctx: disnake.ApplicationCommandInteraction):
+@bot.slash_command(description="Отправляет фото игровой тематики")
+async def игромен(ctx: disnake.ApplicationCommandInteraction):
     try:
         # Отложите ответ, чтобы сообщить Discord, что бот работает над ним
         await ctx.response.defer()
@@ -388,44 +390,59 @@ async def игрофон(ctx: disnake.ApplicationCommandInteraction):
     except requests.exceptions.RequestException as err:
         await ctx.send(f"Что-то пошло не так: {err}")
 
-
-UNSPLASH_ACCESS_KEY = "токен unsplash"  # Замените на ваш ключ доступа Unsplash
-USER_TO_FETCH = "andre_muhamed"  # Замените на имя пользователя на Unsplash
-
 @bot.slash_command(description="Отправляет сгенерированного персонажа")
 async def нейроперс(ctx: disnake.ApplicationCommandInteraction):
     try:
-        # Отложите ответ, чтобы сообщить Discord, что бот работает над ним
+        # Отложить ответ, чтобы показать, что бот работает над командой
         await ctx.response.defer()
 
-        # Получаем все фотографии пользователя
-        photo_response = requests.get(
-            f'https://api.unsplash.com/users/{USER_TO_FETCH}/photos?client_id={UNSPLASH_ACCESS_KEY}'
-        )
-        photo_response.raise_for_status()
+        # Путь к папке с изображениями на вашем хостинге
+        folder_path = "/home/container/нейро_обои"
 
-        photo_data = photo_response.json()
+        # Получить список файлов в папке
+        image_files = os.listdir(folder_path)
 
-        if photo_data:
-            # Выбираем случайное изображение
-            random_photo = random.choice(photo_data)
-            image_url = random_photo['urls']['regular']
+        if image_files:
+            # Случайным образом выбрать одно изображение из списка
+            image_filename = random.choice(image_files)
+            
+            # Путь к выбранному изображению
+            image_path = os.path.join(folder_path, image_filename)
 
-            # Отправляем изображение в текстовый канал
-            await ctx.send(content=image_url)
+            # Отправить изображение в текстовый канал
+            await ctx.send(file=disnake.File(image_path))
         else:
-            await ctx.send("У пользователя нет фотографий на Unsplash.")
-    except requests.exceptions.HTTPError as errh:
-        await ctx.send(f"HTTP-ошибка: {errh}")
-    except requests.exceptions.ConnectionError as errc:
-        await ctx.send(f"Ошибка подключения: {errc}")
-    except requests.exceptions.Timeout as errt:
-        await ctx.send(f"Ошибка тайм-аута: {errt}")
-    except requests.exceptions.RequestException as err:
-        await ctx.send(f"Что-то пошло не так: {err}")
-        
+            await ctx.send("В папке нет изображений.")
+    except Exception as e:
+        await ctx.send(f"Произошла ошибка: {e}")
 
-openai.api_key = "токен чатаджепети"
+@bot.slash_command(description="Отправляет изображение для рабочего стола")
+async def обои(ctx: disnake.ApplicationCommandInteraction):
+    try:
+        # Отложить ответ, чтобы показать, что бот работает над командой
+        await ctx.response.defer()
+
+        # Путь к папке с изображениями на рабочем столе
+        folder_path = "/home/container/пк_обои"
+
+        # Получить список файлов в папке
+        image_files = os.listdir(folder_path)
+
+        if image_files:
+            # Случайным образом выбрать одно изображение из списка
+            image_filename = random.choice(image_files)
+            
+            # Путь к выбранному изображению
+            image_path = os.path.join(folder_path, image_filename)
+
+            # Отправить изображение в текстовый канал
+            await ctx.send(file=disnake.File(image_path))
+        else:
+            await ctx.send("На рабочем столе нет изображений.")
+    except Exception as e:
+        await ctx.send(f"Произошла ошибка: {e}")
+        
+openai.api_key = "ТОКЕН openai"
 
 @bot.slash_command(description="Генерирует ответ в стиле GPT-3.5")
 async def чат(ctx: disnake.ApplicationCommandInteraction, задача: str):
@@ -591,30 +608,35 @@ async def вочтопоиграть(ctx: disnake.ApplicationCommandInteraction)
 @bot.slash_command(description="Рассылка сообщения всем участникам сервера")
 async def рассылка(ctx: disnake.ApplicationCommandInteraction, *,
                    сообщение: str):
-  guild = ctx.guild
-  участники = guild.members
-
-  for участник in участники:
     try:
-      if not участник.bot and участник.dm_channel is None:
-        await участник.create_dm()
+        # Отложить ответ, чтобы сообщить Discord, что бот работает над ним
+        await ctx.response.defer()
 
-      if not участник.bot:
-        if участник.dm_channel.permissions_for(
-            участник.guild.me).send_messages:
-          await участник.dm_channel.send(сообщение)
-        else:
-          текст = f"Не удалось отправить сообщение {участник.mention}: У вас отключены личные сообщения от ботов."
-          await ctx.response.send_message(текст, ephemeral=True)
-    except disnake.errors.Forbidden:
-      # Пропускаем участника, которому невозможно отправить сообщение
-      pass
-    except disnake.errors.HTTPException as e:
-      текст = f"Не удалось отправить сообщение {участник.mention}: {e}"
-      await ctx.response.send_message(текст, ephemeral=True)
+        guild = ctx.guild
+        участники = guild.members
 
-  await ctx.response.send_message("Рассылка завершена!")
+        for участник in участники:
+            try:
+                if not участник.bot and участник.dm_channel is None:
+                    await участник.create_dm()
 
+                if not участник.bot:
+                    if участник.dm_channel.permissions_for(
+                            участник.guild.me).send_messages:
+                        await участник.dm_channel.send(сообщение)
+                    else:
+                        текст = f"Не удалось отправить сообщение {участник.mention}: У вас отключены личные сообщения от ботов."
+                        await ctx.response.send_message(текст, ephemeral=True)
+            except disnake.errors.Forbidden:
+                # Пропускаем участника, которому невозможно отправить сообщение
+                pass
+            except disnake.errors.HTTPException as e:
+                текст = f"Не удалось отправить сообщение {участник.mention}: {e}"
+                await ctx.response.send_message(текст, ephemeral=True)
+
+        await ctx.response.send_message("Рассылка завершена!")
+    except Exception as e:
+        await ctx.send(f"Произошла ошибка при выполнении рассылки: {e}")
 
 @bot.event
 async def on_raw_reaction_add(payload):
@@ -737,6 +759,105 @@ async def uнтеграцию_канал(
 
   return response.choices[0].text.strip()
 
+# Чистка сообщений на сервере
+@bot.event
+async def on_member_update(before, after):
+    if len(after.roles) > len(before.roles):
+        role_ids = [role.id for role in after.roles]
+        if 1205268581957501010 in role_ids:   # ID роли
+            await delete_last_messages(after, 10)
+            await asyncio.sleep(14400)  # 4 часа в секундах
+            await after.remove_roles(after.guild.get_role(1205268581957501010))
+
+async def delete_last_messages(member, count):
+    for channel in member.guild.text_channels:  # Получаем все текстовые каналы на сервере
+        async for message in channel.history(limit=count):
+            if message.author == member:
+                await message.delete()
+                count -= 1
+                if count == 0:
+                    break  # Если удалили 10 сообщений, выходим из цикла
+                                        
+# ID роли для уведомлений о наказании
+PUNISHMENT_ROLE_ID = 1205268581957501010
+
+@bot.event
+async def on_member_update(before, after):
+    # Проверяем, если у участника изменилась роль
+    if before.roles != after.roles:
+        # Проверяем, если у участника добавлена роль наказания
+        if disnake.utils.find(lambda r: r.id == PUNISHMENT_ROLE_ID, after.roles):
+            # Создаем встроенное сообщение с указанным цветом
+            embed = disnake.Embed(
+                title="Уведомление о наказании",
+                description="К сожалению, ваше сообщение было заблокировано автоматически из-за нарушения правил сервера. Чтобы снова иметь возможность отправлять сообщения, пожалуйста, повысьте свой позывной на сервере!",
+                color=disnake.Color.from_rgb(200, 1, 71)  # Цвет #C80147
+            )
+            # Отправляем встроенное сообщение
+            await after.send(embed=embed)
+        # Проверяем, если у участника снята роль наказания
+        elif disnake.utils.find(lambda r: r.id == PUNISHMENT_ROLE_ID, before.roles) and not disnake.utils.find(lambda r: r.id == PUNISHMENT_ROLE_ID, after.roles):
+            # Создаем встроенное сообщение с указанным цветом
+            embed = disnake.Embed(
+                title="Уведомление о снятии наказания",
+                description="Рады сообщить, что ограничения на вашем аккаунте были сняты! Надеемся, что вы будете продолжать соблюдать правила сервера и рекомендуем вам повысить свой позывной на сервере!",
+                color=disnake.Color.from_rgb(200, 1, 71)  # Цвет #C80147
+            )
+            # Отправляем встроенное сообщение
+            await after.send(embed=embed)
+                        
+@bot.slash_command(description="Забанить участника")
+async def ban(ctx: disnake.ApplicationCommandInteraction, member: disnake.Member):
+    try:
+        # Создаем встроенное сообщение о бане с указанным цветом
+        embed = disnake.Embed(
+            title="Уведомление о бане",
+            description="Вас забанили на сервере. Обратитесь к администратору для получения дополнительной информации.",
+            color=0xC80147  # Цвет #C80147
+        )
+        # Отправляем встроенное сообщение в личные сообщения пользователя
+        await member.send(embed=embed)
+    except disnake.errors.Forbidden:
+        await ctx.send(f"Невозможно отправить уведомление пользователю {member} о бане: доступ к личным сообщениям заблокирован.")
+    finally:
+        # Применяем бан
+        await ctx.guild.ban(member)
+                
+@bot.slash_command(description="Выгнать участника")
+async def kick(ctx: disnake.ApplicationCommandInteraction, member: disnake.Member):
+    try:
+        # Создаем встроенное сообщение о вигнании с указанным цветом
+        embed = disnake.Embed(
+            title="Уведомление о вигнании",
+            description="Вас исключили из сервера. Если у вас возникли вопросы, обратитесь к администратору.",
+            color=0xC80147  # Цвет #C80147
+        )
+        # Отправляем встроенное сообщение в личные сообщения пользователя
+        await member.send(embed=embed)
+    except disnake.errors.Forbidden:
+        await ctx.send(f"Невозможно отправить уведомление пользователю {member} о вигнании: доступ к личным сообщениям заблокирован.")
+    finally:
+        # Применяем вигнание
+        await member.kick()
+               
+@bot.slash_command(description="Выдать участнику тайм-аут")
+async def timeout(ctx: disnake.ApplicationCommandInteraction, member: disnake.Member):
+    try:
+        # Создаем встроенное сообщение о тайм-ауте с указанным цветом
+        embed = disnake.Embed(
+            title="Уведомление о тайм-ауте",
+            description="Вам был выдан тайм-аут на сервере. Пожалуйста, ожидайте окончания тайм-аута или обратитесь к администратору для получения дополнительной информации.",
+            color=0xC80147  # Цвет #C80147
+        )
+        # Отправляем встроенное сообщение в личные сообщения пользователя
+        await member.send(embed=embed)
+    except disnake.errors.Forbidden:
+        await ctx.send(f"Невозможно отправить уведомление пользователю {member} о тайм-ауте: доступ к личным сообщениям заблокирован.")
+    finally:
+        # Применяем тайм-аут
+        # Замените значение 600 на желаемую продолжительность тайм-аута в секундах (в данном случае 10 минут)
+        await member.timeout(600)     
+        
 @bot.slash_command(description="Приглашение к оценке сервера")
 async def прокачка(ctx: disnake.ApplicationCommandInteraction):
     # Ваше сообщение с приглашением к оценке сервера
@@ -796,12 +917,11 @@ async def создатели(ctx: disnake.ApplicationCommandInteraction):
         "Андрей Мухамед": "https://vk.com/addmirall_times",
         "Михаил Михайлов": "https://vk.com/mihatosno",
         "Елена Калинина": "https://vk.com/id6422484",
-        
         # Добавьте нужное количество персонажей и их ссылок
     }
 
-    creators_message = "\n".join([f"{creator}: {link}" for creator, link in creators_info.items()])
-    await ctx.send(content=creators_message)   
+    creators_message = "\n".join([f"**{creator}:** ```{link}```" for creator, link in creators_info.items()])
+    await ctx.send(content=creators_message)  
     
 @bot.slash_command(description="Показывает задержкe бота")
 async def пинг(ctx: disnake.ApplicationCommandInteraction):
@@ -823,8 +943,14 @@ async def пинг(ctx: disnake.ApplicationCommandInteraction):
 
 
 
+
+
+
+
+
 special_channel_id = 1195867893938794651  # ID специального голосового канала
-category_id = 1195867893938794650  # ID категории для создания канала
+category_id = 1195867893938794649  # ID категории для создания канала
+allowed_role = [1195867892550479985, 1195867892550479984, 1195867892550479983, 1195867892521123859, 1201172180558417931, 1196983887608426660, 1195867892521123858, 1195867892521123857, 1195867892521123856]  # ID ролей, которым разрешен доступ к каналу
 bot_created_channels = {}  # Словарь для хранения ссылок на созданные каналы
 
 @bot.event
@@ -839,8 +965,8 @@ async def on_voice_state_update(member, before, after):
     if after.channel and after.channel.id == special_channel_id:  # Проверяем, что пользователь зашел в специальный канал
         if category:
             overwrites = {
-                guild.default_role: disnake.PermissionOverwrite(connect=False),
-                member: disnake.PermissionOverwrite(connect=True)
+                guild.default_role: disnake.PermissionOverwrite(connect=False),  # Запрещаем доступ для всех ролей по умолчанию
+                member: disnake.PermissionOverwrite(connect=True, manage_channels=True, move_members=True, mute_members=True, deafen_members=True, create_instant_invite=True)  # Добавляем разрешения для управления каналом и создания приглашений
             }
 
             # Получение объекта владельца сервера
@@ -850,6 +976,11 @@ async def on_voice_state_update(member, before, after):
                 # Предоставляем владельцу специальные права доступа к категории и специальному каналу
                 overwrites[server_owner] = discord.PermissionOverwrite(connect=True, manage_channels=True)
               
+            for role_id in allowed_role:
+                role = guild.get_role(role_id)
+                if role:
+                    overwrites[role] = disnake.PermissionOverwrite(connect=True)
+
             new_channel = await category.create_voice_channel(f"Лейтенант {member.name}", overwrites=overwrites)
             bot_created_channels[member.id] = new_channel
             await member.move_to(new_channel)
@@ -858,42 +989,6 @@ async def on_voice_state_update(member, before, after):
         if before.channel.id in [channel.id for channel in bot_created_channels.values()]:
             await before.channel.delete()
             bot_created_channels = {k: v for k, v in bot_created_channels.items() if v.id != before.channel.id}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
