@@ -59,6 +59,16 @@ And now we are ready to launch the bot!
 https://github.com/AndreMuhamed/Game_Quest/assets/128980327/3063e1d6-e1bd-4827-b662-c6147cc0e998
 
 ---
+# <a id="launching"></a>🔧 » Launching servers
+It's time for the final step. Now you need to go to the 'Console' tab, where you will find a console displaying errors, information about the bot's launch, and whether all libraries are properly installed.
+
+But before doing that, let's start the bot. To do this, click on the 'Start' button. Then, carefully observe the console. If you have any questions or issues with hosting, there is a support channel created for this service in [Discord](https://discord.gg/nexcord-com-1068229111924936854), where you can ask your questions.
+
+And there it is - your bot is now running and working 24/7, and most importantly, it's all free.
+
+![image](https://github.com/AndreMuhamed/Game_Quest/assets/128980327/e2c0b930-c478-4926-8f57-4fdb5564f4a8)
+
+---
 
 # <a id="responsibility"></a>🕵️ » Responsibility
 The developers of this Discord bot code strive to create a product that operates as stably and reliably as possible. However, it should be noted that full functionality and reliability cannot be guaranteed due to the complexity of interactions with various components and services, as well as the influence of user settings and environments. Users should be prepared for possible failures and changes, so it makes sense to have alternative plans in place to ensure the uninterrupted operation of their projects.
