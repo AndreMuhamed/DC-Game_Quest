@@ -37,7 +37,7 @@ The developers of this Discord bot code strive to create a product that operates
 
 ```md
 
-# And remember, developers are not responsible for the performance of this Discord bot code.
+                                 # And remember, developers are not responsible for the performance of this Discord bot code.
 ```
 
 ---
