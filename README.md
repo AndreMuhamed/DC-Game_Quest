@@ -10,9 +10,9 @@
 ---
 
 ## <a id="menu"></a>🔮 » Menu
-- [☄・Deploys](#deploys)
-- [🔰・Features](#features)
-- [🌌・Discord](https://discord.gg/nQGvVAEw5r)
+- [💽・Deploys](#deploys)
+- [🛠・Features](#features)
+- [🎮・Discord](https://discord.gg/nQGvVAEw5r)
 - [🎉・Setting up](#setup)
 
 ## <a id="features"></a>🛠 » Features
