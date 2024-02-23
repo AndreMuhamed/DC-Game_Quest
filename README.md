@@ -22,4 +22,13 @@
 
 ![Знімок екрана 2023-08-26 224924](https://github.com/AndreMuhamed/Game_Room/assets/128980327/14588540-c840-4dbf-9aef-38c598fd5800)
 
-# I am not responsible for the functionality of the bot.
+---
+
+# <a id="responsibility"></a>🕵️ » Responsibility
+The developers of this Discord bot code strive to create a product that operates as stably and reliably as possible. However, it should be noted that full functionality and reliability cannot be guaranteed due to the complexity of interactions with various components and services, as well as the influence of user settings and environments. Users should be prepared for possible failures and changes, so it makes sense to have alternative plans in place to ensure the uninterrupted operation of their projects.
+
+<h1 align="center">
+And remember, developers are not responsible for the performance of this Discord bot code
+</h1>
+
+---
