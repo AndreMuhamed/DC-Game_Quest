@@ -28,6 +28,18 @@ And now you are successfully registered on the hosting!
 
 ![image](https://github.com/AndreMuhamed/Game_Quest/assets/128980327/63364f1a-9312-445f-ba16-f2b044dcdb00)
 
+---
+
+# <a id="сreation"></a>💻 » Creation servers
+After successful registration, you will need to create your first server where your bot will be hosted. To do this, go to the [homepage](https://my.nexcord.com/home), where you will find the 'Servers' section.
+
+Once you navigate to this section, you will be prompted to create a new server. You will need to provide it with a name, choose the language in which your bot is written, and then click the 'Create Server' button.
+
+After that, all you have to do is wait approximately 5-10 minutes for the server to be created.
+
+
+![image](https://github.com/AndreMuhamed/Game_Quest/assets/128980327/3285be94-98da-4d1f-ba6f-e3f93d7c158d)
+
 
 
 
