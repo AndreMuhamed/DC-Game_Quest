@@ -17,7 +17,7 @@
 
 # <a id="features"></a>🛠 » Features
 
-## basis.py
+### •basis.py
 This code snippet utilizes the `threading` and `subprocess` modules to concurrently execute multiple Python scripts in separate threads.
 
 1. It defines a function `run_file(file_name)` that launches the specified Python file using `subprocess.Popen(['python', file_name])`. It then prints a message indicating that the file has been launched.
@@ -30,7 +30,7 @@ This code snippet utilizes the `threading` and `subprocess` modules to concurren
 
 5. The main program continues execution without waiting for the threads to complete and prints a message indicating that the Discord bot and other files have been launched.
 
-# file3.py
+### •file3.py
 This Python script is a Discord bot programmed using the `discord.py` library. Here's a breakdown of what it does:
 
 1. It imports necessary modules including `discord`, `commands` from `discord.ext`, `os`, `random`, and `asyncio`.
