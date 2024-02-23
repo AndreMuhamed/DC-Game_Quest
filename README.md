@@ -15,6 +15,8 @@
 - [🎉・Setting up](#setup)
 - [🕵️・Responsibility](#responsibility)
 
+---
+
 # <a id="features"></a>🛠 » Features
 
 ## basis.py
@@ -64,6 +66,8 @@ This Python script is a Discord bot programmed using the `discord.py` library. H
 7. It runs the bot using the specified `TOKEN`.
 
 Overall, this script creates a Discord bot capable of playing music in a voice channel, responding to commands, and deleting messages that start with the specified command prefix. Additionally, it defines commands that provide information or perform specific actions when invoked by users in the Discord server.
+
+---
 
 # <a id="responsibility"></a>🕵️ » Responsibility
 The developers of this Discord bot code strive to create a product that operates as stably and reliably as possible. However, it should be noted that full functionality and reliability cannot be guaranteed due to the complexity of interactions with various components and services, as well as the influence of user settings and environments. Users should be prepared for possible failures and changes, so it makes sense to have alternative plans in place to ensure the uninterrupted operation of their projects.
