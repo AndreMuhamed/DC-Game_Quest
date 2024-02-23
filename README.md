@@ -10,6 +10,7 @@
 # <a id="menu"></a>🦾 » Menu
 - [🎮・Discord](https://discord.gg/nQGvVAEw5r)
 - [🛠・Features](#features)
+- [💻・Hosting](#hosting)
 - [🎉・Setting up](#setup)
 - [🕵️・Responsibility](#responsibility)
 
