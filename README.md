@@ -1,5 +1,5 @@
 <h1 align="center">
-🎯 An amazing bot from the Game Quest team for your Discord 🎯
+🎯 An amazing bot from the Game Quest team for your Discord-server 🎯
 </h1>
 
 ---
