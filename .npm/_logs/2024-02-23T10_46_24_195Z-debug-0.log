@@ -1,0 +1,656 @@
+0 verbose cli /usr/local/bin/node /usr/local/bin/npm
+1 info using npm@9.8.1
+2 info using node@v18.19.1
+3 timing npm:load:whichnode Completed in 4ms
+4 timing config:load:defaults Completed in 6ms
+5 timing config:load:file:/usr/local/lib/node_modules/npm/npmrc Completed in 1ms
+6 timing config:load:builtin Completed in 1ms
+7 timing config:load:cli Completed in 9ms
+8 timing config:load:env Completed in 1ms
+9 timing config:load:project Completed in 2ms
+10 timing config:load:file:/home/container/.npmrc Completed in 0ms
+11 timing config:load:user Completed in 1ms
+12 timing config:load:file:/usr/local/etc/npmrc Completed in 1ms
+13 timing config:load:global Completed in 1ms
+14 timing config:load:setEnvs Completed in 1ms
+15 timing config:load Completed in 23ms
+16 timing npm:load:configload Completed in 23ms
+17 timing config:load:flatten Completed in 5ms
+18 timing npm:load:mkdirpcache Completed in 1ms
+19 timing npm:load:mkdirplogs Completed in 0ms
+20 verbose title npm install discord
+21 verbose argv "install" "discord"
+22 timing npm:load:setTitle Completed in 2ms
+23 timing npm:load:display Completed in 1ms
+24 verbose logfile logs-max:10 dir:/home/container/.npm/_logs/2024-02-23T10_46_24_195Z-
+25 verbose logfile /home/container/.npm/_logs/2024-02-23T10_46_24_195Z-debug-0.log
+26 timing npm:load:logFile Completed in 15ms
+27 timing npm:load:timers Completed in 0ms
+28 timing npm:load:configScope Completed in 0ms
+29 timing npm:load Completed in 76ms
+30 timing arborist:ctor Completed in 1ms
+31 silly logfile done cleaning log files
+32 timing idealTree:init Completed in 134ms
+33 timing idealTree:userRequests Completed in 2ms
+34 silly idealTree buildDeps
+35 silly fetch manifest discord@*
+36 timing arborist:ctor Completed in 1ms
+37 http fetch GET 200 https://registry.npmjs.org/discord 492ms (cache miss)
+38 silly placeDep ROOT discord@0.8.2 OK for: whitehall@1.0.0 want: *
+39 silly fetch manifest mootools@>=1.4.4
+40 silly fetch manifest describe@>=0.8.0
+41 silly fetch manifest string-color@>=0.8.0
+42 silly fetch manifest glob@>3.0.1
+43 http fetch GET 200 https://registry.npmjs.org/glob 133ms (cache miss)
+44 http fetch GET 200 https://registry.npmjs.org/describe 316ms (cache miss)
+45 http fetch GET 200 https://registry.npmjs.org/mootools 532ms (cache miss)
+46 http fetch GET 200 https://registry.npmjs.org/string-color 602ms (cache miss)
+47 timing idealTree:#root Completed in 1113ms
+48 silly placeDep ROOT describe@1.2.0 OK for: discord@0.8.2 want: >=0.8.0
+49 silly fetch manifest string-color@>= 0.8.0
+50 silly placeDep ROOT glob@10.3.10 OK for: discord@0.8.2 want: >3.0.1
+51 silly fetch manifest foreground-child@^3.1.0
+52 silly fetch manifest jackspeak@^2.3.5
+53 silly fetch manifest minimatch@^9.0.1
+54 silly fetch manifest minipass@^5.0.0 || ^6.0.2 || ^7.0.0
+55 silly fetch manifest path-scurry@^1.10.1
+56 silly placeDep ROOT mootools@1.5.2 OK for: discord@0.8.2 want: >=1.4.4
+57 silly placeDep ROOT string-color@0.8.0 OK for: discord@0.8.2 want: >=0.8.0
+58 http fetch GET 200 https://registry.npmjs.org/foreground-child 87ms (cache miss)
+59 http fetch GET 200 https://registry.npmjs.org/minipass 96ms (cache miss)
+60 http fetch GET 200 https://registry.npmjs.org/path-scurry 105ms (cache miss)
+61 http fetch GET 200 https://registry.npmjs.org/minimatch 109ms (cache miss)
+62 http fetch GET 200 https://registry.npmjs.org/jackspeak 124ms (cache miss)
+63 timing idealTree:node_modules/discord Completed in 134ms
+64 timing idealTree:node_modules/describe Completed in 0ms
+65 silly placeDep ROOT foreground-child@3.1.1 OK for: glob@10.3.10 want: ^3.1.0
+66 silly fetch manifest cross-spawn@^7.0.0
+67 silly fetch manifest signal-exit@^4.0.1
+68 silly placeDep ROOT jackspeak@2.3.6 OK for: glob@10.3.10 want: ^2.3.5
+69 silly fetch manifest @isaacs/cliui@^8.0.2
+70 silly fetch manifest @pkgjs/parseargs@^0.11.0
+71 silly placeDep ROOT minimatch@9.0.3 OK for: glob@10.3.10 want: ^9.0.1
+72 silly fetch manifest brace-expansion@^2.0.1
+73 silly placeDep ROOT minipass@7.0.4 OK for: glob@10.3.10 want: ^5.0.0 || ^6.0.2 || ^7.0.0
+74 silly placeDep ROOT path-scurry@1.10.1 OK for: glob@10.3.10 want: ^1.10.1
+75 silly fetch manifest lru-cache@^9.1.1 || ^10.0.0
+76 http fetch GET 200 https://registry.npmjs.org/brace-expansion 65ms (cache miss)
+77 http fetch GET 200 https://registry.npmjs.org/cross-spawn 75ms (cache miss)
+78 http fetch GET 200 https://registry.npmjs.org/signal-exit 113ms (cache miss)
+79 http fetch GET 200 https://registry.npmjs.org/@isaacs%2fcliui 113ms (cache miss)
+80 http fetch GET 200 https://registry.npmjs.org/@pkgjs%2fparseargs 112ms (cache miss)
+81 http fetch GET 200 https://registry.npmjs.org/lru-cache 115ms (cache miss)
+82 timing idealTree:node_modules/glob Completed in 135ms
+83 silly placeDep ROOT cross-spawn@7.0.3 OK for: foreground-child@3.1.1 want: ^7.0.0
+84 silly fetch manifest path-key@^3.1.0
+85 silly fetch manifest shebang-command@^2.0.0
+86 silly fetch manifest which@^2.0.1
+87 silly placeDep ROOT signal-exit@4.1.0 OK for: foreground-child@3.1.1 want: ^4.0.1
+88 http fetch GET 200 https://registry.npmjs.org/shebang-command 52ms (cache miss)
+89 http fetch GET 200 https://registry.npmjs.org/path-key 54ms (cache miss)
+90 http fetch GET 200 https://registry.npmjs.org/which 59ms (cache miss)
+91 timing idealTree:node_modules/foreground-child Completed in 65ms
+92 silly placeDep ROOT path-key@3.1.1 OK for: cross-spawn@7.0.3 want: ^3.1.0
+93 silly placeDep ROOT shebang-command@2.0.0 OK for: cross-spawn@7.0.3 want: ^2.0.0
+94 silly fetch manifest shebang-regex@^3.0.0
+95 silly placeDep ROOT which@2.0.2 OK for: cross-spawn@7.0.3 want: ^2.0.1
+96 silly fetch manifest isexe@^2.0.0
+97 http fetch GET 200 https://registry.npmjs.org/isexe 40ms (cache miss)
+98 http fetch GET 200 https://registry.npmjs.org/shebang-regex 55ms (cache miss)
+99 timing idealTree:node_modules/cross-spawn Completed in 61ms
+100 silly placeDep ROOT @isaacs/cliui@8.0.2 OK for: jackspeak@2.3.6 want: ^8.0.2
+101 silly fetch manifest string-width@^5.1.2
+102 silly fetch manifest string-width-cjs@npm:string-width@^4.2.0
+103 silly fetch manifest strip-ansi@^7.0.1
+104 silly fetch manifest strip-ansi-cjs@npm:strip-ansi@^6.0.1
+105 silly fetch manifest wrap-ansi@^8.1.0
+106 silly fetch manifest wrap-ansi-cjs@npm:wrap-ansi@^7.0.0
+107 silly placeDep ROOT @pkgjs/parseargs@0.11.0 OK for: jackspeak@2.3.6 want: ^0.11.0
+108 http fetch GET 200 https://registry.npmjs.org/strip-ansi 80ms (cache miss)
+109 http fetch GET 200 https://registry.npmjs.org/string-width 86ms (cache miss)
+110 http fetch GET 200 https://registry.npmjs.org/strip-ansi 82ms (cache miss)
+111 http fetch GET 200 https://registry.npmjs.org/string-width 87ms (cache miss)
+112 http fetch GET 200 https://registry.npmjs.org/wrap-ansi 84ms (cache miss)
+113 http fetch GET 200 https://registry.npmjs.org/wrap-ansi 88ms (cache miss)
+114 timing idealTree:node_modules/jackspeak Completed in 101ms
+115 silly placeDep ROOT string-width@5.1.2 OK for: @isaacs/cliui@8.0.2 want: ^5.1.2
+116 silly fetch manifest eastasianwidth@^0.2.0
+117 silly fetch manifest emoji-regex@^9.2.2
+118 silly placeDep ROOT string-width-cjs@4.2.3 OK for: @isaacs/cliui@8.0.2 want: npm:string-width@^4.2.0
+119 silly fetch manifest emoji-regex@^8.0.0
+120 silly fetch manifest is-fullwidth-code-point@^3.0.0
+121 silly fetch manifest strip-ansi@^6.0.1
+122 silly placeDep ROOT strip-ansi@7.1.0 OK for: @isaacs/cliui@8.0.2 want: ^7.0.1
+123 silly fetch manifest ansi-regex@^6.0.1
+124 silly placeDep ROOT strip-ansi-cjs@6.0.1 OK for: @isaacs/cliui@8.0.2 want: npm:strip-ansi@^6.0.1
+125 silly fetch manifest ansi-regex@^5.0.1
+126 silly placeDep ROOT wrap-ansi@8.1.0 OK for: @isaacs/cliui@8.0.2 want: ^8.1.0
+127 silly fetch manifest ansi-styles@^6.1.0
+128 silly placeDep ROOT wrap-ansi-cjs@7.0.0 OK for: @isaacs/cliui@8.0.2 want: npm:wrap-ansi@^7.0.0
+129 silly fetch manifest ansi-styles@^4.0.0
+130 silly fetch manifest string-width@^4.1.0
+131 silly fetch manifest strip-ansi@^6.0.0
+132 http fetch GET 200 https://registry.npmjs.org/is-fullwidth-code-point 115ms (cache miss)
+133 http fetch GET 200 https://registry.npmjs.org/eastasianwidth 124ms (cache miss)
+134 http fetch GET 200 https://registry.npmjs.org/ansi-regex 113ms (cache miss)
+135 http fetch GET 200 https://registry.npmjs.org/ansi-regex 111ms (cache miss)
+136 http fetch GET 200 https://registry.npmjs.org/emoji-regex 124ms (cache miss)
+137 http fetch GET 200 https://registry.npmjs.org/emoji-regex 130ms (cache miss)
+138 http fetch GET 200 https://registry.npmjs.org/ansi-styles 117ms (cache miss)
+139 http fetch GET 200 https://registry.npmjs.org/ansi-styles 124ms (cache miss)
+140 timing idealTree:node_modules/@isaacs/cliui Completed in 164ms
+141 timing idealTree:node_modules/@pkgjs/parseargs Completed in 0ms
+142 silly placeDep ROOT brace-expansion@2.0.1 OK for: minimatch@9.0.3 want: ^2.0.1
+143 silly fetch manifest balanced-match@^1.0.0
+144 http fetch GET 200 https://registry.npmjs.org/balanced-match 48ms (cache miss)
+145 timing idealTree:node_modules/minimatch Completed in 55ms
+146 silly placeDep ROOT balanced-match@1.0.2 OK for: brace-expansion@2.0.1 want: ^1.0.0
+147 timing idealTree:node_modules/brace-expansion Completed in 2ms
+148 timing idealTree:node_modules/balanced-match Completed in 0ms
+149 timing idealTree:node_modules/minipass Completed in 0ms
+150 timing idealTree:node_modules/mootools Completed in 0ms
+151 timing idealTree:node_modules/path-key Completed in 0ms
+152 silly placeDep ROOT lru-cache@10.2.0 OK for: path-scurry@1.10.1 want: ^9.1.1 || ^10.0.0
+153 timing idealTree:node_modules/path-scurry Completed in 2ms
+154 timing idealTree:node_modules/lru-cache Completed in 0ms
+155 silly placeDep ROOT shebang-regex@3.0.0 OK for: shebang-command@2.0.0 want: ^3.0.0
+156 timing idealTree:node_modules/shebang-command Completed in 2ms
+157 timing idealTree:node_modules/shebang-regex Completed in 0ms
+158 timing idealTree:node_modules/signal-exit Completed in 0ms
+159 timing idealTree:node_modules/string-color Completed in 0ms
+160 silly placeDep ROOT eastasianwidth@0.2.0 OK for: string-width@5.1.2 want: ^0.2.0
+161 silly placeDep ROOT emoji-regex@9.2.2 OK for: string-width@5.1.2 want: ^9.2.2
+162 timing idealTree:node_modules/string-width Completed in 5ms
+163 timing idealTree:node_modules/eastasianwidth Completed in 0ms
+164 timing idealTree:node_modules/emoji-regex Completed in 0ms
+165 silly placeDep node_modules/string-width-cjs emoji-regex@8.0.0 OK for: string-width@4.2.3 want: ^8.0.0
+166 silly placeDep ROOT is-fullwidth-code-point@3.0.0 OK for: string-width@4.2.3 want: ^3.0.0
+167 silly placeDep node_modules/string-width-cjs strip-ansi@6.0.1 OK for: string-width@4.2.3 want: ^6.0.1
+168 timing idealTree:node_modules/string-width-cjs Completed in 9ms
+169 timing idealTree:node_modules/is-fullwidth-code-point Completed in 0ms
+170 silly placeDep ROOT ansi-regex@6.0.1 OK for: strip-ansi@7.1.0 want: ^6.0.1
+171 timing idealTree:node_modules/strip-ansi Completed in 3ms
+172 timing idealTree:node_modules/ansi-regex Completed in 0ms
+173 silly placeDep node_modules/strip-ansi-cjs ansi-regex@5.0.1 OK for: strip-ansi@6.0.1 want: ^5.0.1
+174 timing idealTree:node_modules/strip-ansi-cjs Completed in 3ms
+175 silly placeDep ROOT isexe@2.0.0 OK for: which@2.0.2 want: ^2.0.0
+176 timing idealTree:node_modules/which Completed in 3ms
+177 timing idealTree:node_modules/isexe Completed in 0ms
+178 silly placeDep ROOT ansi-styles@6.2.1 OK for: wrap-ansi@8.1.0 want: ^6.1.0
+179 timing idealTree:node_modules/wrap-ansi Completed in 3ms
+180 timing idealTree:node_modules/ansi-styles Completed in 0ms
+181 silly placeDep node_modules/wrap-ansi-cjs ansi-styles@4.3.0 OK for: wrap-ansi@7.0.0 want: ^4.0.0
+182 silly fetch manifest color-convert@^2.0.1
+183 silly placeDep node_modules/wrap-ansi-cjs string-width@4.2.3 OK for: wrap-ansi@7.0.0 want: ^4.1.0
+184 silly placeDep node_modules/wrap-ansi-cjs strip-ansi@6.0.1 OK for: wrap-ansi@7.0.0 want: ^6.0.0
+185 http fetch GET 200 https://registry.npmjs.org/color-convert 66ms (cache miss)
+186 timing idealTree:node_modules/wrap-ansi-cjs Completed in 80ms
+187 timing idealTree:node_modules/string-width-cjs/node_modules/emoji-regex Completed in 0ms
+188 silly placeDep node_modules/string-width-cjs ansi-regex@5.0.1 OK for: strip-ansi@6.0.1 want: ^5.0.1
+189 timing idealTree:node_modules/string-width-cjs/node_modules/strip-ansi Completed in 3ms
+190 timing idealTree:node_modules/string-width-cjs/node_modules/ansi-regex Completed in 0ms
+191 timing idealTree:node_modules/strip-ansi-cjs/node_modules/ansi-regex Completed in 0ms
+192 silly placeDep ROOT color-convert@2.0.1 OK for: ansi-styles@4.3.0 want: ^2.0.1
+193 silly fetch manifest color-name@~1.1.4
+194 http fetch GET 200 https://registry.npmjs.org/color-name 48ms (cache miss)
+195 timing idealTree:node_modules/wrap-ansi-cjs/node_modules/ansi-styles Completed in 53ms
+196 silly placeDep ROOT color-name@1.1.4 OK for: color-convert@2.0.1 want: ~1.1.4
+197 timing idealTree:node_modules/color-convert Completed in 5ms
+198 timing idealTree:node_modules/color-name Completed in 0ms
+199 silly placeDep node_modules/wrap-ansi-cjs emoji-regex@8.0.0 OK for: string-width@4.2.3 want: ^8.0.0
+200 timing idealTree:node_modules/wrap-ansi-cjs/node_modules/string-width Completed in 3ms
+201 timing idealTree:node_modules/wrap-ansi-cjs/node_modules/emoji-regex Completed in 0ms
+202 silly placeDep node_modules/wrap-ansi-cjs ansi-regex@5.0.1 OK for: strip-ansi@6.0.1 want: ^5.0.1
+203 timing idealTree:node_modules/wrap-ansi-cjs/node_modules/strip-ansi Completed in 2ms
+204 timing idealTree:node_modules/wrap-ansi-cjs/node_modules/ansi-regex Completed in 0ms
+205 timing idealTree:buildDeps Completed in 2017ms
+206 timing idealTree:fixDepFlags Completed in 3ms
+207 timing idealTree Completed in 2164ms
+208 timing reify:loadTrees Completed in 2167ms
+209 timing reify:diffTrees Completed in 10ms
+210 silly reify moves {}
+211 timing reify:retireShallow Completed in 2ms
+212 timing reify:createSparse Completed in 7ms
+213 timing reify:loadBundles Completed in 0ms
+214 silly audit bulk request {
+214 silly audit   '@discordjs/builders': [ '0.15.0', '0.16.0' ],
+214 silly audit   'discord-api-types': [ '0.33.5', '0.35.0', '0.36.3' ],
+214 silly audit   '@discordjs/collection': [ '0.7.0' ],
+214 silly audit   '@discordjs/rest': [ '0.5.0' ],
+214 silly audit   '@sapphire/async-queue': [ '1.5.0' ],
+214 silly audit   '@sapphire/shapeshift': [ '3.8.2' ],
+214 silly audit   '@sapphire/snowflake': [ '3.2.2' ],
+214 silly audit   '@sindresorhus/is': [ '4.6.0' ],
+214 silly audit   '@types/node': [ '18.16.0' ],
+214 silly audit   '@types/node-fetch': [ '2.6.3' ],
+214 silly audit   'form-data': [ '3.0.1', '4.0.0' ],
+214 silly audit   '@types/ws': [ '8.5.4' ],
+214 silly audit   accepts: [ '1.3.8' ],
+214 silly audit   'array-flatten': [ '1.1.1' ],
+214 silly audit   'ascii-table': [ '0.0.9' ],
+214 silly audit   asynckit: [ '0.4.0' ],
+214 silly audit   'body-parser': [ '1.20.0' ],
+214 silly audit   bytes: [ '3.1.2' ],
+214 silly audit   'call-bind': [ '1.0.2' ],
+214 silly audit   'combined-stream': [ '1.0.8' ],
+214 silly audit   'content-disposition': [ '0.5.4' ],
+214 silly audit   'content-type': [ '1.0.4' ],
+214 silly audit   cookie: [ '0.5.0' ],
+214 silly audit   'cookie-signature': [ '1.0.6' ],
+214 silly audit   debug: [ '2.6.9' ],
+214 silly audit   ms: [ '2.0.0', '2.1.3' ],
+214 silly audit   'delayed-stream': [ '1.0.0' ],
+214 silly audit   depd: [ '2.0.0' ],
+214 silly audit   destroy: [ '1.2.0' ],
+214 silly audit   'discord.js': [ '13.15.1' ],
+214 silly audit   'ee-first': [ '1.1.1' ],
+214 silly audit   encodeurl: [ '1.0.2' ],
+214 silly audit   'escape-html': [ '1.0.3' ],
+214 silly audit   etag: [ '1.8.1' ],
+214 silly audit   express: [ '4.18.1' ],
+214 silly audit   'fast-deep-equal': [ '3.1.3' ],
+214 silly audit   finalhandler: [ '1.2.0' ],
+214 silly audit   forwarded: [ '0.2.0' ],
+214 silly audit   fresh: [ '0.5.2' ],
+214 silly audit   fs: [ '0.0.1-security' ],
+214 silly audit   'function-bind': [ '1.1.1' ],
+214 silly audit   'get-intrinsic': [ '1.1.2' ],
+214 silly audit   has: [ '1.0.3' ],
+214 silly audit   'has-symbols': [ '1.0.3' ],
+214 silly audit   'http-errors': [ '2.0.0' ],
+214 silly audit   'iconv-lite': [ '0.4.24' ],
+214 silly audit   inherits: [ '2.0.4' ],
+214 silly audit   'ipaddr.js': [ '1.9.1' ],
+214 silly audit   lodash: [ '4.17.21' ],
+214 silly audit   'media-typer': [ '0.3.0' ],
+214 silly audit   'merge-descriptors': [ '1.0.1' ],
+214 silly audit   methods: [ '1.1.2' ],
+214 silly audit   mime: [ '1.6.0' ],
+214 silly audit   'mime-db': [ '1.52.0' ],
+214 silly audit   'mime-types': [ '2.1.35' ],
+214 silly audit   negotiator: [ '0.6.3' ],
+214 silly audit   'node-fetch': [ '2.6.7' ],
+214 silly audit   'object-inspect': [ '1.12.2' ],
+214 silly audit   'on-finished': [ '2.4.1' ],
+214 silly audit   parseurl: [ '1.3.3' ],
+214 silly audit   'path-to-regexp': [ '0.1.7' ],
+214 silly audit   'proxy-addr': [ '2.0.7' ],
+214 silly audit   qs: [ '6.10.3' ],
+214 silly audit   'range-parser': [ '1.2.1' ],
+214 silly audit   'raw-body': [ '2.5.1' ],
+214 silly audit   'safe-buffer': [ '5.2.1' ],
+214 silly audit   'safer-buffer': [ '2.1.2' ],
+214 silly audit   send: [ '0.18.0' ],
+214 silly audit   'serve-static': [ '1.15.0' ],
+214 silly audit   setprototypeof: [ '1.2.0' ],
+214 silly audit   'side-channel': [ '1.0.4' ],
+214 silly audit   statuses: [ '2.0.1' ],
+214 silly audit   toidentifier: [ '1.0.1' ],
+214 silly audit   tr46: [ '0.0.3' ],
+214 silly audit   'ts-mixer': [ '6.0.1' ],
+214 silly audit   tslib: [ '2.4.0' ],
+214 silly audit   'type-is': [ '1.6.18' ],
+214 silly audit   undici: [ '5.5.1' ],
+214 silly audit   unpipe: [ '1.0.0' ],
+214 silly audit   'utils-merge': [ '1.0.1' ],
+214 silly audit   vary: [ '1.1.2' ],
+214 silly audit   'webidl-conversions': [ '3.0.1' ],
+214 silly audit   'whatwg-url': [ '5.0.0' ],
+214 silly audit   ws: [ '8.13.0' ],
+214 silly audit   discord: [ '0.8.2' ],
+214 silly audit   describe: [ '1.2.0' ],
+214 silly audit   glob: [ '10.3.10' ],
+214 silly audit   mootools: [ '1.5.2' ],
+214 silly audit   'string-color': [ '0.8.0' ],
+214 silly audit   'foreground-child': [ '3.1.1' ],
+214 silly audit   jackspeak: [ '2.3.6' ],
+214 silly audit   minimatch: [ '9.0.3' ],
+214 silly audit   minipass: [ '7.0.4' ],
+214 silly audit   'path-scurry': [ '1.10.1' ],
+214 silly audit   'cross-spawn': [ '7.0.3' ],
+214 silly audit   'signal-exit': [ '4.1.0' ],
+214 silly audit   'path-key': [ '3.1.1' ],
+214 silly audit   'shebang-command': [ '2.0.0' ],
+214 silly audit   which: [ '2.0.2' ],
+214 silly audit   '@isaacs/cliui': [ '8.0.2' ],
+214 silly audit   '@pkgjs/parseargs': [ '0.11.0' ],
+214 silly audit   'string-width': [ '5.1.2', '4.2.3' ],
+214 silly audit   'strip-ansi': [ '7.1.0', '6.0.1' ],
+214 silly audit   'wrap-ansi': [ '8.1.0', '7.0.0' ],
+214 silly audit   'brace-expansion': [ '2.0.1' ],
+214 silly audit   'balanced-match': [ '1.0.2' ],
+214 silly audit   'lru-cache': [ '10.2.0' ],
+214 silly audit   'shebang-regex': [ '3.0.0' ],
+214 silly audit   eastasianwidth: [ '0.2.0' ],
+214 silly audit   'emoji-regex': [ '9.2.2', '8.0.0' ],
+214 silly audit   'is-fullwidth-code-point': [ '3.0.0' ],
+214 silly audit   'ansi-regex': [ '6.0.1', '5.0.1' ],
+214 silly audit   isexe: [ '2.0.0' ],
+214 silly audit   'ansi-styles': [ '6.2.1', '4.3.0' ],
+214 silly audit   'color-convert': [ '2.0.1' ],
+214 silly audit   'color-name': [ '1.1.4' ]
+214 silly audit }
+215 silly tarball no local data for color-convert@https://registry.npmjs.org/color-convert/-/color-convert-2.0.1.tgz. Extracting by manifest.
+216 silly tarball no local data for color-name@https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz. Extracting by manifest.
+217 silly tarball no local data for ansi-styles@https://registry.npmjs.org/ansi-styles/-/ansi-styles-6.2.1.tgz. Extracting by manifest.
+218 silly tarball no local data for ansi-regex@https://registry.npmjs.org/ansi-regex/-/ansi-regex-6.0.1.tgz. Extracting by manifest.
+219 silly tarball no local data for is-fullwidth-code-point@https://registry.npmjs.org/is-fullwidth-code-point/-/is-fullwidth-code-point-3.0.0.tgz. Extracting by manifest.
+220 silly tarball no local data for emoji-regex@https://registry.npmjs.org/emoji-regex/-/emoji-regex-9.2.2.tgz. Extracting by manifest.
+221 silly tarball no local data for isexe@https://registry.npmjs.org/isexe/-/isexe-2.0.0.tgz. Extracting by manifest.
+222 silly tarball no local data for eastasianwidth@https://registry.npmjs.org/eastasianwidth/-/eastasianwidth-0.2.0.tgz. Extracting by manifest.
+223 silly tarball no local data for shebang-regex@https://registry.npmjs.org/shebang-regex/-/shebang-regex-3.0.0.tgz. Extracting by manifest.
+224 silly tarball no local data for lru-cache@https://registry.npmjs.org/lru-cache/-/lru-cache-10.2.0.tgz. Extracting by manifest.
+225 silly tarball no local data for brace-expansion@https://registry.npmjs.org/brace-expansion/-/brace-expansion-2.0.1.tgz. Extracting by manifest.
+226 silly tarball no local data for balanced-match@https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz. Extracting by manifest.
+227 silly tarball no local data for wrap-ansi-cjs@https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-7.0.0.tgz. Extracting by manifest.
+228 silly tarball no local data for wrap-ansi@https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-8.1.0.tgz. Extracting by manifest.
+229 silly tarball no local data for strip-ansi-cjs@https://registry.npmjs.org/strip-ansi/-/strip-ansi-6.0.1.tgz. Extracting by manifest.
+230 silly tarball no local data for strip-ansi@https://registry.npmjs.org/strip-ansi/-/strip-ansi-7.1.0.tgz. Extracting by manifest.
+231 silly tarball no local data for string-width-cjs@https://registry.npmjs.org/string-width/-/string-width-4.2.3.tgz. Extracting by manifest.
+232 silly tarball no local data for string-width@https://registry.npmjs.org/string-width/-/string-width-5.1.2.tgz. Extracting by manifest.
+233 silly tarball no local data for @pkgjs/parseargs@https://registry.npmjs.org/@pkgjs/parseargs/-/parseargs-0.11.0.tgz. Extracting by manifest.
+234 silly tarball no local data for @isaacs/cliui@https://registry.npmjs.org/@isaacs/cliui/-/cliui-8.0.2.tgz. Extracting by manifest.
+235 silly tarball no local data for which@https://registry.npmjs.org/which/-/which-2.0.2.tgz. Extracting by manifest.
+236 silly tarball no local data for shebang-command@https://registry.npmjs.org/shebang-command/-/shebang-command-2.0.0.tgz. Extracting by manifest.
+237 silly tarball no local data for path-key@https://registry.npmjs.org/path-key/-/path-key-3.1.1.tgz. Extracting by manifest.
+238 silly tarball no local data for signal-exit@https://registry.npmjs.org/signal-exit/-/signal-exit-4.1.0.tgz. Extracting by manifest.
+239 silly tarball no local data for cross-spawn@https://registry.npmjs.org/cross-spawn/-/cross-spawn-7.0.3.tgz. Extracting by manifest.
+240 silly tarball no local data for path-scurry@https://registry.npmjs.org/path-scurry/-/path-scurry-1.10.1.tgz. Extracting by manifest.
+241 silly tarball no local data for minipass@https://registry.npmjs.org/minipass/-/minipass-7.0.4.tgz. Extracting by manifest.
+242 silly tarball no local data for minimatch@https://registry.npmjs.org/minimatch/-/minimatch-9.0.3.tgz. Extracting by manifest.
+243 silly tarball no local data for jackspeak@https://registry.npmjs.org/jackspeak/-/jackspeak-2.3.6.tgz. Extracting by manifest.
+244 silly tarball no local data for foreground-child@https://registry.npmjs.org/foreground-child/-/foreground-child-3.1.1.tgz. Extracting by manifest.
+245 silly tarball no local data for string-color@https://registry.npmjs.org/string-color/-/string-color-0.8.0.tgz. Extracting by manifest.
+246 silly tarball no local data for mootools@https://registry.npmjs.org/mootools/-/mootools-1.5.2.tgz. Extracting by manifest.
+247 silly tarball no local data for glob@https://registry.npmjs.org/glob/-/glob-10.3.10.tgz. Extracting by manifest.
+248 silly tarball no local data for describe@https://registry.npmjs.org/describe/-/describe-1.2.0.tgz. Extracting by manifest.
+249 silly tarball no local data for discord@https://registry.npmjs.org/discord/-/discord-0.8.2.tgz. Extracting by manifest.
+250 silly tarball no local data for ansi-regex@https://registry.npmjs.org/ansi-regex/-/ansi-regex-5.0.1.tgz. Extracting by manifest.
+251 silly tarball no local data for emoji-regex@https://registry.npmjs.org/emoji-regex/-/emoji-regex-8.0.0.tgz. Extracting by manifest.
+252 silly tarball no local data for strip-ansi@https://registry.npmjs.org/strip-ansi/-/strip-ansi-6.0.1.tgz. Extracting by manifest.
+253 silly tarball no local data for ansi-styles@https://registry.npmjs.org/ansi-styles/-/ansi-styles-4.3.0.tgz. Extracting by manifest.
+254 silly tarball no local data for string-width@https://registry.npmjs.org/string-width/-/string-width-4.2.3.tgz. Extracting by manifest.
+255 silly tarball no local data for strip-ansi@https://registry.npmjs.org/strip-ansi/-/strip-ansi-6.0.1.tgz. Extracting by manifest.
+256 silly tarball no local data for ansi-regex@https://registry.npmjs.org/ansi-regex/-/ansi-regex-5.0.1.tgz. Extracting by manifest.
+257 silly tarball no local data for ansi-regex@https://registry.npmjs.org/ansi-regex/-/ansi-regex-5.0.1.tgz. Extracting by manifest.
+258 silly tarball no local data for emoji-regex@https://registry.npmjs.org/emoji-regex/-/emoji-regex-8.0.0.tgz. Extracting by manifest.
+259 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 264ms
+260 timing auditReport:getReport Completed in 274ms
+261 silly audit report {
+261 silly audit report   undici: [
+261 silly audit report     {
+261 silly audit report       id: 1089266,
+261 silly audit report       url: 'https://github.com/advisories/GHSA-q768-x9m6-m9qp',
+261 silly audit report       title: 'undici before v5.8.0 vulnerable to uncleared cookies on cross-host / cross-origin redirect',
+261 silly audit report       severity: 'low',
+261 silly audit report       vulnerable_versions: '<5.8.0',
+261 silly audit report       cwe: [Array],
+261 silly audit report       cvss: [Object]
+261 silly audit report     },
+261 silly audit report     {
+261 silly audit report       id: 1091088,
+261 silly audit report       url: 'https://github.com/advisories/GHSA-r6ch-mqf9-qc9w',
+261 silly audit report       title: 'Regular Expression Denial of Service in Headers',
+261 silly audit report       severity: 'high',
+261 silly audit report       vulnerable_versions: '<5.19.1',
+261 silly audit report       cwe: [Array],
+261 silly audit report       cvss: [Object]
+261 silly audit report     },
+261 silly audit report     {
+261 silly audit report       id: 1091151,
+261 silly audit report       url: 'https://github.com/advisories/GHSA-5r9g-qh6m-jxff',
+261 silly audit report       title: 'CRLF Injection in Nodejs ‘undici’ via host',
+261 silly audit report       severity: 'moderate',
+261 silly audit report       vulnerable_versions: '>=2.0.0 <5.19.1',
+261 silly audit report       cwe: [Array],
+261 silly audit report       cvss: [Object]
+261 silly audit report     },
+261 silly audit report     {
+261 silly audit report       id: 1088895,
+261 silly audit report       url: 'https://github.com/advisories/GHSA-3cvr-822r-rqcc',
+261 silly audit report       title: 'undici before v5.8.0 vulnerable to CRLF injection in request headers',
+261 silly audit report       severity: 'moderate',
+261 silly audit report       vulnerable_versions: '<5.8.0',
+261 silly audit report       cwe: [Array],
+261 silly audit report       cvss: [Object]
+261 silly audit report     },
+261 silly audit report     {
+261 silly audit report       id: 1090404,
+261 silly audit report       url: 'https://github.com/advisories/GHSA-f772-66g8-q5h3',
+261 silly audit report       title: 'Nodejs ‘undici’ vulnerable to CRLF Injection via Content-Type',
+261 silly audit report       severity: 'moderate',
+261 silly audit report       vulnerable_versions: '<=5.8.1',
+261 silly audit report       cwe: [Array],
+261 silly audit report       cvss: [Object]
+261 silly audit report     },
+261 silly audit report     {
+261 silly audit report       id: 1090405,
+261 silly audit report       url: 'https://github.com/advisories/GHSA-8qr4-xgw6-wmr3',
+261 silly audit report       title: '`undici.request` vulnerable to SSRF using absolute URL on `pathname`',
+261 silly audit report       severity: 'moderate',
+261 silly audit report       vulnerable_versions: '<=5.8.1',
+261 silly audit report       cwe: [Array],
+261 silly audit report       cvss: [Object]
+261 silly audit report     },
+261 silly audit report     {
+261 silly audit report       id: 1096502,
+261 silly audit report       url: 'https://github.com/advisories/GHSA-wqq4-5wpv-mx2g',
+261 silly audit report       title: "Undici's cookie header not cleared on cross-origin redirect in fetch",
+261 silly audit report       severity: 'low',
+261 silly audit report       vulnerable_versions: '<5.26.2',
+261 silly audit report       cwe: [Array],
+261 silly audit report       cvss: [Object]
+261 silly audit report     },
+261 silly audit report     {
+261 silly audit report       id: 1096521,
+261 silly audit report       url: 'https://github.com/advisories/GHSA-3787-6prv-h9w3',
+261 silly audit report       title: 'Undici proxy-authorization header not cleared on cross-origin redirect in fetch',
+261 silly audit report       severity: 'low',
+261 silly audit report       vulnerable_versions: '<=5.28.2',
+261 silly audit report       cwe: [],
+261 silly audit report       cvss: [Object]
+261 silly audit report     }
+261 silly audit report   ],
+261 silly audit report   mootools: [
+261 silly audit report     {
+261 silly audit report       id: 1089674,
+261 silly audit report       url: 'https://github.com/advisories/GHSA-x6hx-7gh3-3q98',
+261 silly audit report       title: 'Prototype Pollution in mootools',
+261 silly audit report       severity: 'moderate',
+261 silly audit report       vulnerable_versions: '<=1.5.2',
+261 silly audit report       cwe: [Array],
+261 silly audit report       cvss: [Object]
+261 silly audit report     }
+261 silly audit report   ]
+261 silly audit report }
+262 timing metavuln:packument:mootools Completed in 1ms
+263 timing metavuln:cache:get:security-advisory:mootools:CkO22zAgn/buaZMLGRgYXPBAi3IgL1MQemmtbADgaqyZPS02soWnPmbtaS1nvjC/P9zmDy3zg8H9wD2q4NndhQ== Completed in 27ms
+264 timing metavuln:load:security-advisory:mootools:1089674 Completed in 2ms
+265 timing metavuln:cache:get:security-advisory:undici:6e7cFU61J3vcZ0AEZ3MKn/P4wYtfbBt99Jae7Tgz2zSC01xTNejtnEdVYDY1bBVA+he6W4odYIiVYvnyz7EiTA== Completed in 294ms
+266 timing metavuln:cache:get:security-advisory:undici:baMmQIWZBa6WnO8P3a71muKjtzGPttvtCQzYBrz8j3QU7bu5e5bKYSz9qxG7SJA/7Rx1Vr9eqhmA4qPMt/vT0Q== Completed in 293ms
+267 timing metavuln:cache:get:security-advisory:undici:nQObUsuTAJw3uIE2fDBnnvZ/K+sGYoQceZrAoY2KQ7iHjP+DKZ89jIOBQ7el1efh19OJOpXHaTafU32tKOzZ9Q== Completed in 292ms
+268 timing metavuln:cache:get:security-advisory:undici:z7SzVkyP03FSFTXmIFv9JObknaIxI7LBNAYs5+FmmU/WakpW7D0O6r6WxD5t61TbVAheQxpL9KX6DBLrpFj8Zg== Completed in 293ms
+269 timing metavuln:cache:get:security-advisory:undici:5RaRKXa8wbNT7abUSDeFtJWPYhGDHfrHjUHsGZOCLBKrpD6EXVJo11UvW/Q6CrfZQpJF/Xh4XjOr5mTMFU56/w== Completed in 293ms
+270 timing metavuln:cache:get:security-advisory:undici:wcjhf5XlNdHP01akSpNigC7F7/egyUIM5dVILKJ4xqknxhJAnaFlt3v8jImdiiGDtukwBaKPuxhZvH3vt/cf+Q== Completed in 293ms
+271 timing metavuln:cache:get:security-advisory:undici:CQme3UXqbSc+6MbXKNOaEvMU/3z0huPXd+qWmB7TiOHJlEvs8VRjRggkmUpdwhQLuZrmY0ySr/ibkfKpCwXWfg== Completed in 293ms
+272 timing metavuln:cache:get:security-advisory:undici:Er/7j70BfFtpcsrVHIsnewevKrEpQ7MCMbX+1JxaH4yiXhr7WieOcGLCRnLyyF4iRoBENZRW5x3FcmOzGciqbg== Completed in 293ms
+273 http fetch GET 200 https://registry.npmjs.org/is-fullwidth-code-point/-/is-fullwidth-code-point-3.0.0.tgz 531ms (cache miss)
+274 timing reifyNode:node_modules/is-fullwidth-code-point Completed in 586ms
+275 http fetch GET 200 https://registry.npmjs.org/strip-ansi/-/strip-ansi-6.0.1.tgz 529ms (cache miss)
+276 timing reifyNode:node_modules/strip-ansi-cjs Completed in 596ms
+277 http fetch GET 200 https://registry.npmjs.org/ansi-styles/-/ansi-styles-6.2.1.tgz 548ms (cache miss)
+278 timing reifyNode:node_modules/ansi-styles Completed in 600ms
+279 http fetch GET 200 https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz 555ms (cache miss)
+280 timing reifyNode:node_modules/color-name Completed in 607ms
+281 http fetch GET 200 https://registry.npmjs.org/isexe/-/isexe-2.0.0.tgz 548ms (cache miss)
+282 timing reifyNode:node_modules/isexe Completed in 606ms
+283 http fetch GET 200 https://registry.npmjs.org/ansi-regex/-/ansi-regex-6.0.1.tgz 567ms (cache miss)
+284 timing reifyNode:node_modules/ansi-regex Completed in 620ms
+285 http fetch GET 200 https://registry.npmjs.org/string-width/-/string-width-5.1.2.tgz 553ms (cache miss)
+286 timing reifyNode:node_modules/string-width Completed in 624ms
+287 http fetch GET 200 https://registry.npmjs.org/string-width/-/string-width-4.2.3.tgz 563ms (cache miss)
+288 timing reifyNode:node_modules/string-width-cjs Completed in 633ms
+289 http fetch GET 200 https://registry.npmjs.org/strip-ansi/-/strip-ansi-7.1.0.tgz 573ms (cache miss)
+290 timing reifyNode:node_modules/strip-ansi Completed in 642ms
+291 http fetch GET 200 https://registry.npmjs.org/string-width/-/string-width-4.2.3.tgz 540ms (cache miss)
+292 timing reifyNode:node_modules/wrap-ansi-cjs/node_modules/string-width Completed in 650ms
+293 timing metavuln:cache:put:security-advisory:mootools:CkO22zAgn/buaZMLGRgYXPBAi3IgL1MQemmtbADgaqyZPS02soWnPmbtaS1nvjC/P9zmDy3zg8H9wD2q4NndhQ== Completed in 353ms
+294 timing metavuln:calculate:security-advisory:mootools:1089674 Completed in 384ms
+295 http fetch GET 200 https://registry.npmjs.org/undici 388ms (cache hit)
+296 timing metavuln:packument:undici Completed in 394ms
+297 timing metavuln:load:security-advisory:undici:1089266 Completed in 4ms
+298 timing metavuln:calculate:security-advisory:undici:1089266 Completed in 399ms
+299 timing metavuln:load:security-advisory:undici:1091088 Completed in 3ms
+300 timing metavuln:calculate:security-advisory:undici:1091088 Completed in 400ms
+301 timing metavuln:load:security-advisory:undici:1091151 Completed in 2ms
+302 timing metavuln:calculate:security-advisory:undici:1091151 Completed in 401ms
+303 timing metavuln:load:security-advisory:undici:1088895 Completed in 2ms
+304 timing metavuln:calculate:security-advisory:undici:1088895 Completed in 404ms
+305 timing metavuln:load:security-advisory:undici:1090404 Completed in 3ms
+306 timing metavuln:calculate:security-advisory:undici:1090404 Completed in 407ms
+307 timing metavuln:load:security-advisory:undici:1090405 Completed in 2ms
+308 timing metavuln:calculate:security-advisory:undici:1090405 Completed in 410ms
+309 timing metavuln:load:security-advisory:undici:1096502 Completed in 3ms
+310 timing metavuln:calculate:security-advisory:undici:1096502 Completed in 413ms
+311 timing metavuln:load:security-advisory:undici:1096521 Completed in 4ms
+312 timing metavuln:calculate:security-advisory:undici:1096521 Completed in 416ms
+313 http fetch GET 200 https://registry.npmjs.org/which/-/which-2.0.2.tgz 608ms (cache miss)
+314 timing reifyNode:node_modules/which Completed in 683ms
+315 http fetch GET 200 https://registry.npmjs.org/shebang-command/-/shebang-command-2.0.0.tgz 603ms (cache miss)
+316 timing reifyNode:node_modules/shebang-command Completed in 683ms
+317 http fetch GET 200 https://registry.npmjs.org/path-key/-/path-key-3.1.1.tgz 602ms (cache miss)
+318 timing reifyNode:node_modules/path-key Completed in 684ms
+319 http fetch GET 200 https://registry.npmjs.org/eastasianwidth/-/eastasianwidth-0.2.0.tgz 631ms (cache miss)
+320 timing reifyNode:node_modules/eastasianwidth Completed in 690ms
+321 http fetch GET 200 https://registry.npmjs.org/@isaacs/cliui/-/cliui-8.0.2.tgz 620ms (cache miss)
+322 timing reifyNode:node_modules/@isaacs/cliui Completed in 694ms
+323 http fetch GET 200 https://registry.npmjs.org/cross-spawn/-/cross-spawn-7.0.3.tgz 609ms (cache miss)
+324 timing reifyNode:node_modules/cross-spawn Completed in 694ms
+325 http fetch GET 200 https://registry.npmjs.org/string-color/-/string-color-0.8.0.tgz 602ms (cache miss)
+326 timing reifyNode:node_modules/string-color Completed in 695ms
+327 http fetch GET 200 https://registry.npmjs.org/strip-ansi/-/strip-ansi-6.0.1.tgz 591ms (cache miss)
+328 timing reifyNode:node_modules/string-width-cjs/node_modules/strip-ansi Completed in 700ms
+329 http fetch GET 200 https://registry.npmjs.org/strip-ansi/-/strip-ansi-6.0.1.tgz 595ms (cache miss)
+330 timing reifyNode:node_modules/wrap-ansi-cjs/node_modules/strip-ansi Completed in 701ms
+331 http fetch GET 200 https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz 648ms (cache miss)
+332 timing reifyNode:node_modules/balanced-match Completed in 712ms
+333 http fetch GET 200 https://registry.npmjs.org/color-convert/-/color-convert-2.0.1.tgz 670ms (cache miss)
+334 timing reifyNode:node_modules/color-convert Completed in 718ms
+335 http fetch GET 200 https://registry.npmjs.org/shebang-regex/-/shebang-regex-3.0.0.tgz 658ms (cache miss)
+336 timing reifyNode:node_modules/shebang-regex Completed in 718ms
+337 http fetch GET 200 https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-7.0.0.tgz 652ms (cache miss)
+338 timing reifyNode:node_modules/wrap-ansi-cjs Completed in 718ms
+339 http fetch GET 200 https://registry.npmjs.org/ansi-regex/-/ansi-regex-5.0.1.tgz 608ms (cache miss)
+340 timing reifyNode:node_modules/strip-ansi-cjs/node_modules/ansi-regex Completed in 720ms
+341 http fetch GET 200 https://registry.npmjs.org/emoji-regex/-/emoji-regex-8.0.0.tgz 609ms (cache miss)
+342 timing reifyNode:node_modules/string-width-cjs/node_modules/emoji-regex Completed in 723ms
+343 http fetch GET 200 https://registry.npmjs.org/brace-expansion/-/brace-expansion-2.0.1.tgz 663ms (cache miss)
+344 timing reifyNode:node_modules/brace-expansion Completed in 727ms
+345 http fetch GET 200 https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-8.1.0.tgz 660ms (cache miss)
+346 timing reifyNode:node_modules/wrap-ansi Completed in 726ms
+347 http fetch GET 200 https://registry.npmjs.org/ansi-regex/-/ansi-regex-5.0.1.tgz 616ms (cache miss)
+348 timing reifyNode:node_modules/string-width-cjs/node_modules/ansi-regex Completed in 728ms
+349 http fetch GET 200 https://registry.npmjs.org/ansi-regex/-/ansi-regex-5.0.1.tgz 626ms (cache miss)
+350 timing reifyNode:node_modules/wrap-ansi-cjs/node_modules/ansi-regex Completed in 731ms
+351 http fetch GET 200 https://registry.npmjs.org/ansi-styles/-/ansi-styles-4.3.0.tgz 626ms (cache miss)
+352 timing reifyNode:node_modules/wrap-ansi-cjs/node_modules/ansi-styles Completed in 734ms
+353 http fetch GET 200 https://registry.npmjs.org/emoji-regex/-/emoji-regex-9.2.2.tgz 681ms (cache miss)
+354 http fetch GET 200 https://registry.npmjs.org/@pkgjs/parseargs/-/parseargs-0.11.0.tgz 665ms (cache miss)
+355 http fetch GET 200 https://registry.npmjs.org/emoji-regex/-/emoji-regex-8.0.0.tgz 640ms (cache miss)
+356 timing reifyNode:node_modules/wrap-ansi-cjs/node_modules/emoji-regex Completed in 745ms
+357 timing metavuln:cache:get:security-advisory:@discordjs/rest:nXscZOimYZL6DbAU59Iex0SHPHIhvBoHNRFu+iEEhDCohhJyopFEockx8bCUumNvy08a+wZa05IKer1orzAwTA== Completed in 64ms
+358 timing reifyNode:node_modules/emoji-regex Completed in 753ms
+359 timing reifyNode:node_modules/@pkgjs/parseargs Completed in 753ms
+360 http fetch GET 200 https://registry.npmjs.org/@discordjs%2frest 108ms (cache hit)
+361 timing metavuln:packument:@discordjs/rest Completed in 135ms
+362 timing metavuln:load:security-advisory:@discordjs/rest:6e7cFU61J3vcZ0AEZ3MKn/P4wYtfbBt99Jae7Tgz2zSC01xTNejtnEdVYDY1bBVA+he6W4odYIiVYvnyz7EiTA== Completed in 32ms
+363 timing metavuln:calculate:security-advisory:@discordjs/rest:6e7cFU61J3vcZ0AEZ3MKn/P4wYtfbBt99Jae7Tgz2zSC01xTNejtnEdVYDY1bBVA+he6W4odYIiVYvnyz7EiTA== Completed in 169ms
+364 timing metavuln:packument:discord Completed in 1ms
+365 timing metavuln:cache:get:security-advisory:discord:ayjbDcH5Oaz2bimgLdRFK4ovmIdGJAy7L4bBuDjAkkwlYwRPF4n35PJfuYDPPuV7tyJPEDVqqBH6IebqRHohHQ== Completed in 4ms
+366 timing metavuln:load:security-advisory:discord:CkO22zAgn/buaZMLGRgYXPBAi3IgL1MQemmtbADgaqyZPS02soWnPmbtaS1nvjC/P9zmDy3zg8H9wD2q4NndhQ== Completed in 3ms
+367 http fetch GET 200 https://registry.npmjs.org/mootools/-/mootools-1.5.2.tgz 767ms (cache miss)
+368 timing reifyNode:node_modules/mootools Completed in 863ms
+369 http fetch GET 200 https://registry.npmjs.org/signal-exit/-/signal-exit-4.1.0.tgz 789ms (cache miss)
+370 timing reifyNode:node_modules/signal-exit Completed in 883ms
+371 http fetch GET 200 https://registry.npmjs.org/minipass/-/minipass-7.0.4.tgz 795ms (cache miss)
+372 timing reifyNode:node_modules/minipass Completed in 886ms
+373 http fetch GET 200 https://registry.npmjs.org/foreground-child/-/foreground-child-3.1.1.tgz 794ms (cache miss)
+374 timing reifyNode:node_modules/foreground-child Completed in 891ms
+375 timing metavuln:cache:put:security-advisory:discord:ayjbDcH5Oaz2bimgLdRFK4ovmIdGJAy7L4bBuDjAkkwlYwRPF4n35PJfuYDPPuV7tyJPEDVqqBH6IebqRHohHQ== Completed in 53ms
+376 timing metavuln:calculate:security-advisory:discord:CkO22zAgn/buaZMLGRgYXPBAi3IgL1MQemmtbADgaqyZPS02soWnPmbtaS1nvjC/P9zmDy3zg8H9wD2q4NndhQ== Completed in 61ms
+377 timing auditReport:init Completed in 659ms
+378 timing reify:audit Completed in 938ms
+379 http fetch GET 200 https://registry.npmjs.org/jackspeak/-/jackspeak-2.3.6.tgz 837ms (cache miss)
+380 timing reifyNode:node_modules/jackspeak Completed in 927ms
+381 http fetch GET 200 https://registry.npmjs.org/describe/-/describe-1.2.0.tgz 858ms (cache miss)
+382 timing reifyNode:node_modules/describe Completed in 956ms
+383 http fetch GET 200 https://registry.npmjs.org/path-scurry/-/path-scurry-1.10.1.tgz 883ms (cache miss)
+384 timing reifyNode:node_modules/path-scurry Completed in 970ms
+385 http fetch GET 200 https://registry.npmjs.org/discord/-/discord-0.8.2.tgz 880ms (cache miss)
+386 timing reifyNode:node_modules/discord Completed in 980ms
+387 http fetch GET 200 https://registry.npmjs.org/lru-cache/-/lru-cache-10.2.0.tgz 925ms (cache miss)
+388 timing reifyNode:node_modules/lru-cache Completed in 986ms
+389 http fetch GET 200 https://registry.npmjs.org/glob/-/glob-10.3.10.tgz 900ms (cache miss)
+390 http fetch GET 200 https://registry.npmjs.org/minimatch/-/minimatch-9.0.3.tgz 908ms (cache miss)
+391 timing reifyNode:node_modules/minimatch Completed in 998ms
+392 timing reifyNode:node_modules/glob Completed in 998ms
+393 timing reify:unpack Completed in 1005ms
+394 timing reify:unretire Completed in 1ms
+395 timing build:queue Completed in 3ms
+396 timing build:link:node_modules/glob Completed in 5ms
+397 timing build:link:node_modules/which Completed in 4ms
+398 timing build:link Completed in 6ms
+399 timing build:deps Completed in 9ms
+400 timing build Completed in 10ms
+401 timing reify:build Completed in 10ms
+402 timing reify:trash Completed in 0ms
+403 timing reify:save Completed in 86ms
+404 timing reify Completed in 3360ms
+405 silly ADD node_modules/color-name
+406 silly ADD node_modules/color-convert
+407 silly ADD node_modules/ansi-styles
+408 silly ADD node_modules/isexe
+409 silly ADD node_modules/ansi-regex
+410 silly ADD node_modules/is-fullwidth-code-point
+411 silly ADD node_modules/emoji-regex
+412 silly ADD node_modules/eastasianwidth
+413 silly ADD node_modules/shebang-regex
+414 silly ADD node_modules/lru-cache
+415 silly ADD node_modules/balanced-match
+416 silly ADD node_modules/brace-expansion
+417 silly ADD node_modules/wrap-ansi-cjs
+418 silly ADD node_modules/wrap-ansi-cjs/node_modules/ansi-regex
+419 silly ADD node_modules/wrap-ansi-cjs/node_modules/emoji-regex
+420 silly ADD node_modules/wrap-ansi-cjs/node_modules/strip-ansi
+421 silly ADD node_modules/wrap-ansi-cjs/node_modules/string-width
+422 silly ADD node_modules/wrap-ansi-cjs/node_modules/ansi-styles
+423 silly ADD node_modules/wrap-ansi
+424 silly ADD node_modules/strip-ansi-cjs
+425 silly ADD node_modules/strip-ansi-cjs/node_modules/ansi-regex
+426 silly ADD node_modules/strip-ansi
+427 silly ADD node_modules/string-width-cjs
+428 silly ADD node_modules/string-width-cjs/node_modules/ansi-regex
+429 silly ADD node_modules/string-width-cjs/node_modules/strip-ansi
+430 silly ADD node_modules/string-width-cjs/node_modules/emoji-regex
+431 silly ADD node_modules/string-width
+432 silly ADD node_modules/@pkgjs/parseargs
+433 silly ADD node_modules/@isaacs/cliui
+434 silly ADD node_modules/which
+435 silly ADD node_modules/shebang-command
+436 silly ADD node_modules/path-key
+437 silly ADD node_modules/signal-exit
+438 silly ADD node_modules/cross-spawn
+439 silly ADD node_modules/path-scurry
+440 silly ADD node_modules/minipass
+441 silly ADD node_modules/minimatch
+442 silly ADD node_modules/jackspeak
+443 silly ADD node_modules/foreground-child
+444 silly ADD node_modules/string-color
+445 silly ADD node_modules/mootools
+446 silly ADD node_modules/glob
+447 silly ADD node_modules/describe
+448 silly ADD node_modules/discord
+449 timing command:install Completed in 3397ms
+450 verbose exit 0
+451 timing npm Completed in 3787ms
+452 info ok
