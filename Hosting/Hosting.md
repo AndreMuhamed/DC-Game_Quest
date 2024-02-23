@@ -2,7 +2,7 @@
 👓 Discord bot hosting 👓
 </h1>
 
-# <a id="navigator"></a>🦾 » Navigator
+# <a id="navigator"></a>🔮 » Navigator
 
 
 
