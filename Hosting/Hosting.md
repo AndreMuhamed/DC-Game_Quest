@@ -4,6 +4,10 @@
 
 ---
 
+https://github.com/AndreMuhamed/Game_Quest/assets/128980327/3063e1d6-e1bd-4827-b662-c6147cc0e998
+
+---
+
 # <a id="navigator"></a>🔮 » Navigator
 - [🛠・Registration](#registration)
 - [💻・Creation servers](#сreation)
@@ -52,11 +56,6 @@ Then go to the 'Launch' tab and change two things: the 'APP PY FILE' (the file t
 And now we are ready to launch the bot!
 
 ![image](https://github.com/AndreMuhamed/Game_Quest/assets/128980327/584bd886-60e3-406f-b4c2-e5be0acb6e52)
-
-
----
-
-https://github.com/AndreMuhamed/Game_Quest/assets/128980327/3063e1d6-e1bd-4827-b662-c6147cc0e998
 
 ---
 # <a id="launching"></a>🔧 » Launching servers
