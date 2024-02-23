@@ -7,7 +7,7 @@
 # <a id="navigator"></a>🔮 » Navigator
 - [🛠・Registration](#registration)
 - [💻・Creation servers](#сreation)
-- [⚙️・Setting servers](#іetting)
+- [⚙️・Setting servers](#sіetting)
 - [🔧・Launching servers](#launching)
 - [🕵️・Responsibility](#responsibility)
 
@@ -40,9 +40,18 @@ After that, all you have to do is wait approximately 5-10 minutes for the server
 
 ![image](https://github.com/AndreMuhamed/Game_Quest/assets/128980327/3285be94-98da-4d1f-ba6f-e3f93d7c158d)
 
+---
 
+# <a id="sіetting"></a>⚙️ » Setting servers
+After creating the [server](https://my.nexcord.com/servers), go to the settings and click on the 'Manage' button. Then log in to your account again.
 
+Next, go to the server settings to set up the bot. The first thing we do is add the bot's code. To do this, go to the 'Files' tab and upload the archive with the bot, which needs to be unpacked. If necessary, you can make changes to the files, modify the code itself, the token, IP address, file name, etc. Don't forget to save the changes!
 
+Then go to the 'Launch' tab and change two things: the 'APP PY FILE' (the file that is launched, i.e., the main file) and 'Additional Python Packages' (list all the libraries used by our bot).
+
+And now we are ready to launch the bot!
+
+![image](https://github.com/AndreMuhamed/Game_Quest/assets/128980327/584bd886-60e3-406f-b4c2-e5be0acb6e52)
 
 
 ---
