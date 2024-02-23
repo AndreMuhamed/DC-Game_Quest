@@ -9,5 +9,12 @@
 
 ---
 
+## <a id="menu"></a>🔮 » Menu
+- [☄・Deploys](#deploys)
+- [🔰・Features](#features)
+- [🌌・Discord](https://discord.gg/nQGvVAEw5r)
+- [🎉・Setting up](#setup)
+
+
 # I am not responsible for the functionality of the bot.
 
