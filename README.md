@@ -71,6 +71,9 @@ Overall, this script creates a Discord bot capable of playing music in a voice c
 # <a id="hosting"></a>💻 » Hosting
 If you need additional information on how to host the bot and ensure its round-the-clock operation, we recommend referring to our [hosting](https://github.com/AndreMuhamed/Game_Quest/tree/Game-Quest/Hosting) guides. After uploading the bot and performing all necessary manipulations with the code, simply launch it and wait for everything to start working.
 
+![image](https://github.com/AndreMuhamed/Game_Quest/assets/128980327/5745089e-9147-415a-80b5-542ed8f6e833)
+
+
 ---
 
 # <a id="responsibility"></a>🕵️ » Responsibility
