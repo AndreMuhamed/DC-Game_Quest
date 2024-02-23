@@ -66,7 +66,7 @@ This Python script is a Discord bot programmed using the `discord.py` library. H
 
 Overall, this script creates a Discord bot capable of playing music in a voice channel, responding to commands, and deleting messages that start with the specified command prefix. Additionally, it defines commands that provide information or perform specific actions when invoked by users in the Discord server.
 
-# <a id="hosting"></a>🕵️ » Hosting
+# <a id="hosting"></a>💻 » Hosting
 
 ---
 
