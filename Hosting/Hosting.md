@@ -14,19 +14,15 @@ The bot is hosted on this free service (https://replit.com/@AndreMuhamed) and co
 
 
 
-
-https://github.com/AndreMuhamed/Game_Quest/assets/128980327/8b115193-8595-4e50-b480-f4c4037987bc
-
-
-
-https://github.com/AndreMuhamed/Game_Quest/assets/128980327/d6da1d5e-b096-4232-b8ee-428bf59a2fca
-
-
-
-
-
 https://github.com/AndreMuhamed/Game_Quest/assets/128980327/b1baf5e6-de45-4e83-87db-aaa913701481
 
 
 
+
+
+
+
+
+
+https://github.com/AndreMuhamed/Game_Quest/assets/128980327/62424d4b-078d-41da-b20f-eb7346b7d867
 
