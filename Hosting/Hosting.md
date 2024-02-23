@@ -11,6 +11,21 @@
 - [🔧・Launching servers](#launching)
 - [🕵️・Responsibility](#responsibility)
 
+---
+
+# <a id="registration"></a>🛠 » Registration
+We invite you to register on the hosting available on the website [Nexcord](https://nexcord.com/index.php)
+
+In the top right corner of the page, you will see the 'Register' button. After clicking on it, you will undergo a short registration procedure.
+
+1. First, you need to come up with a login and password.
+2. After that, you confirm your password.
+3. The next step is to enter your email address.
+4. Don't forget to agree to the rules by clicking on the corresponding checkbox.
+5. Complete the registration by clicking the 'Register' button.
+
+And now you are successfully registered on the hosting!"
+![image](https://github.com/AndreMuhamed/Game_Quest/assets/128980327/63364f1a-9312-445f-ba16-f2b044dcdb00)
 
 
 
