@@ -1,6 +1,3 @@
-Automod Badge
-
-
 # Tutoriel !
 
 Etape 1: Fill in the information in config.json on Visual Studio Code
