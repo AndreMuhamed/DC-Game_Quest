@@ -31,6 +31,9 @@ This code snippet utilizes the `threading` and `subprocess` modules to concurren
 
 5. The main program continues execution without waiting for the threads to complete and prints a message indicating that the Discord bot and other files have been launched.
 
+![image](https://github.com/AndreMuhamed/Game_Quest/assets/128980327/b9b78f11-ee1b-4a3b-b1a6-b3c3dcdfc930)
+
+
 ### • file3.py
 This Python script is a Discord bot programmed using the `discord.py` library. Here's a breakdown of what it does:
 
@@ -66,13 +69,14 @@ This Python script is a Discord bot programmed using the `discord.py` library. H
 
 Overall, this script creates a Discord bot capable of playing music in a voice channel, responding to commands, and deleting messages that start with the specified command prefix. Additionally, it defines commands that provide information or perform specific actions when invoked by users in the Discord server.
 
+![image](https://github.com/AndreMuhamed/Game_Quest/assets/128980327/f7d7aabc-72d1-4399-b040-2f5200afada0)
+
 ---
 
 # <a id="hosting"></a>💻 » Hosting
 If you need additional information on how to host the bot and ensure its round-the-clock operation, we recommend referring to our [hosting](https://github.com/AndreMuhamed/Game_Quest/tree/Game-Quest/Hosting) guides. After uploading the bot and performing all necessary manipulations with the code, simply launch it and wait for everything to start working.
 
 ![image](https://github.com/AndreMuhamed/Game_Quest/assets/128980327/5745089e-9147-415a-80b5-542ed8f6e833)
-
 
 ---
 
