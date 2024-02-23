@@ -4,10 +4,10 @@ from telethon import TelegramClient, events
 from telethon.tl import types as telethon_types
 import os
 
-api_id = "27959431"
-api_hash = "3981613b56ce83955c65059d533d1bb9"
-telegram_token = "6573924839:AAGAohKj51P4TNpyjWtbslmP_W6I88sKMDw"
-discord_token = "MTEwMjE5OTc0MjE0ODEyMDYyNg.GpIXui.op0yRy8DFIMRXY7MoTF1rVjNBJrsNZ4bY41ta4"
+api_id = "АЙПИ телеграм"
+api_hash = "КЕШ телеграм"
+telegram_token = "ТОКЕН телеграм"
+discord_token = "ТОКЕН бота"
 
 telegram_channel_id = -1002010217021
 discord_channel_id = 1195884297668792360
