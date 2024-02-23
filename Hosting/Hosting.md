@@ -21,7 +21,9 @@ https://github.com/AndreMuhamed/Game_Quest/assets/128980327/62424d4b-078d-41da-b
 
 
 
-https://github.com/AndreMuhamed/Game_Quest/assets/128980327/77e8d7b1-190f-4187-8948-4e21e3dbf048
+https://github.com/AndreMuhamed/Game_Quest/assets/128980327/9febf663-f3cb-43b7-a576-a3f5e25ead20
+
+
 
 
 
