@@ -11,6 +11,7 @@ Etape 4: On these 18 servers add the bot and order !automod
 Etape 5: Wait at least 12-24 hours
 
 ![image](https://github.com/AndreMuhamed/Game_Quest/assets/128980327/dc3ce541-8ccf-4c26-bbf4-f90f52281d3e)
+![image](https://github.com/AndreMuhamed/Game_Quest/assets/128980327/6d1705be-0e64-456c-81eb-4381363cab31)
 
 ---
 
