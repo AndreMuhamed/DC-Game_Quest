@@ -12,12 +12,11 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 
 @bot.event
 async def on_ready():
-    print(f'Бот {bot.user.name} готов для воспроизведения музыки')
+    print(f'Бот {bot.user.name} готов')
 
-@bot.command(name='welcome_message')
-async def welcome_message(ctx):
+@bot.command(name='войс')
+async def войс(ctx):
     embed = discord.Embed(
-        title="Добро пожаловать в наши автоголосовые каналы!",
         description="Для начала, зайдите в канал <#1195867893938794651>. После этого вы будете автоматически перемещены в созданную для вас комнату, где вы сможете управлять каналом по своему усмотрению.\n\n" 
                     "**Вы можете** перемещать, мутить и отключать звук у всех участников, находящихся в вашем канале, а также создавать приглашения, по которым смогут присоединиться другие пользователи.\n\n"
                     "А без ссылки-приглашения могут присоединиться такие роли: <@&1195867892550479985>, <@&1195867892550479983>, <@&1195867892521123859>, <@&1201172180558417931>, <@&1196983887608426660>, <@&1195867892521123858>, <@&1195867892521123857>, <@&1195867892521123856>.\n\n"
@@ -26,6 +25,7 @@ async def welcome_message(ctx):
     )
     embed.set_image(url="https://cdn.discordapp.com/attachments/1195867893594869857/1207039605669503046/a70852ae0e5b4c85.png")
     embed.set_footer(text="Приятного общения в вашей новой комнате!")
-    await ctx.send(embed=embed)
+    embed.set_author(name="ДОБРО ПОЖАЛОВАТЬ В НАШИ АВТОГОЛОСОВЫЕ", icon_url="https://cdn.discordapp.com/attachments/1195867893594869857/1211392931882213386/icon-voice.png")  #Добавляем имя и иконку
+    await ctx.channel.send(embed=embed)
 
 bot.run(TOKEN)
