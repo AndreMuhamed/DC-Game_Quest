@@ -12,7 +12,8 @@
 
 These functions are useful for automating the process of assigning or removing roles to users on a Discord server based on reactions to a specific message.
 
-![image](https://github.com/AndreMuhamed/Game_Room/assets/128980327/ead9b139-eeda-4b2d-a541-f6dc49bcc08d)
+![image](https://github.com/AndreMuhamed/Game_Quest/assets/128980327/812e208f-3021-42f3-972a-faf0316af8ce)
+
 
 
 ---
