@@ -1,5 +1,3 @@
----
-
 <h1 align="center">
 🎯 An amazing bot from the Game Quest 🎯
 </h1>
