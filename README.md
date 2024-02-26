@@ -11,7 +11,8 @@
 
 The bot uses a `for` loop to loop through and send each embed with the rules and a note to the chat. This allows the bot to consistently present to the user all the rules that have been defined in the code.
 
-![image](https://github.com/AndreMuhamed/Game_Room/assets/128980327/393f20f1-5166-4c1c-a126-1b917baf06d5)
+![image](https://github.com/AndreMuhamed/Game_Quest/assets/128980327/98fd384a-a70b-4c92-91e9-bcb55ce35b8a)
+
 
 
 ---
