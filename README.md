@@ -2,7 +2,7 @@
 🎯 An amazing bot from the Game Quest 🎯
 </h1>
 
-![image](https://github.com/AndreMuhamed/Game_Quest/assets/128980327/3ca9c1f9-0da9-4315-877e-28f1a450169f)
+![image](https://github.com/AndreMuhamed/Game_Quest/assets/128980327/3ca9c1f9-0da9-4315-877e-28f1a450169f)зшзпзшпзпзп
 
 
 ---
