@@ -24,7 +24,7 @@ async def чат(ctx):
     )
     embed.set_image(url="https://cdn.discordapp.com/attachments/1195867893594869857/1211632429891199017/2024-02-26-13-12-07.gif")  #Устанавливаем изображение в интеграцию
     embed.set_footer(text="Наша главная цель - обеспечить ваш комфортный опыт на сервере!")
-    embed.set_author(name="ДОБРО ПОЖАЛОВАТЬ В НАШИ КАНАЛЫ СЕРВЕРА!", icon_url="https://cdn.discordapp.com/attachments/1195867893594869857/1211392935623397376/icon-chat.png")  #Добавляем имя и иконку
+    embed.set_author(name="ДОБРО ПОЖАЛОВАТЬ В НАШИ ЧАТЫ", icon_url="https://cdn.discordapp.com/attachments/1195867893594869857/1211392935623397376/icon-chat.png")  #Добавляем имя и иконку
     await ctx.send(embed=embed)
 
 bot.run('ТВОЙ ТОКЕН БОТА')
