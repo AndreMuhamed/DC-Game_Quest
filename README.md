@@ -28,7 +28,8 @@
 
 In summary, when the bot is running and the command `!ну` is entered, the bot will send embedded messages to the channel, with content specified in the `custom_embed_data`. Each embedded message will be created based on the dictionaries in the list, and each of them will be sent to the channel.
 
-![image](https://github.com/AndreMuhamed/Game_Room/assets/128980327/44cd0ce9-7d1c-43f8-8b10-14225a47fcd6)
+![image](https://github.com/AndreMuhamed/Game_Quest/assets/128980327/23a4832f-1527-4da6-8ce7-1e623fde2fee)
+
 
 
 ---
