@@ -1,4 +1,4 @@
-<h1 align="center">
+<h1 align="center">пцпупцуп
 🎯 An amazing bot from the Game Quest 🎯
 </h1>
 
