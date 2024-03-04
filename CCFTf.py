@@ -27,4 +27,4 @@ async def репер(ctx):
     embed.set_author(name="ДОБРО ПОЖАЛОВАТЬ В НАШИ РЕПЕРТУАРЫ", icon_url="https://cdn.discordapp.com/attachments/1195867893594869857/1211392929814544444/icon-torrent.png")  #Добавляем имя и иконку
     await ctx.send(embed=embed)
 
-bot.run('MTEwMjE5OTc0MjE0ODEyMDYyNg.GwBoK3.x7h6joThCacZsA5LCGrUylgGZ7OEE17ihiKbcU')
+bot.run('ТВОЙ ТОКЕН БОТА')
