@@ -36,7 +36,7 @@ module.exports = {
 		   }).catch(async err => {
 			   setTimeout(async () => {
 				   console.log(err);
-				   await whitehall_message.reply(`Присоединяйтесь к нашому серверу discord.gg/nQGvVAEw5r`)
+				   await whitehall_message.reply(`Присоединяйтесь к нашому серверу discord.gg/GJUuPRbN5a`)
 			   }, 2000)
 		   })
    
@@ -77,7 +77,7 @@ module.exports = {
 		   }).catch(async err => {
 			   setTimeout(async () => {
 				   console.log(err);
-				   await whitehall_message.reply(`Присоединяйтесь к нашому серверу discord.gg/nQGvVAEw5r`)
+				   await whitehall_message.reply(`Присоединяйтесь к нашому серверу discord.gg/GJUuPRbN5a`)
 			   }, 2000)
 		   })
    
@@ -114,7 +114,7 @@ module.exports = {
 		}).catch(async err => {
 			setTimeout(async () => {
 				console.log(err);
-				await whitehall_message.reply(`Присоединяйтесь к нашому серверу discord.gg/nQGvVAEw5r`)
+				await whitehall_message.reply(`Присоединяйтесь к нашому серверу discord.gg/GJUuPRbN5a`)
 			}, 2000)
 		})
 
@@ -151,7 +151,7 @@ module.exports = {
 		}).catch(async err => {
 			setTimeout(async () => {
 				console.log(err);
-				await whitehall_message.reply(`Присоединяйтесь к нашому серверу discord.gg/nQGvVAEw5r`)
+				await whitehall_message.reply(`Присоединяйтесь к нашому серверу discord.gg/GJUuPRbN5a`)
 			}, 2000)
 		})
 
@@ -188,7 +188,7 @@ module.exports = {
 		}).catch(async err => {
 			setTimeout(async () => {
 				console.log(err);
-				await whitehall_message.reply(`Присоединяйтесь к нашому серверу discord.gg/nQGvVAEw5r`)
+				await whitehall_message.reply(`Присоединяйтесь к нашому серверу discord.gg/GJUuPRbN5a`)
 			}, 2000)
 		})
 
@@ -225,7 +225,7 @@ module.exports = {
 		}).catch(async err => {
 			setTimeout(async () => {
 				console.log(err);
-				await whitehall_message.reply(`Присоединяйтесь к нашому серверу discord.gg/nQGvVAEw5r`)
+				await whitehall_message.reply(`Присоединяйтесь к нашому серверу discord.gg/GJUuPRbN5a`)
 			}, 2000)
 		})
 
@@ -262,7 +262,7 @@ module.exports = {
 		}).catch(async err => {
 			setTimeout(async () => {
 				console.log(err);
-				await whitehall_message.reply(`Присоединяйтесь к нашому серверу discord.gg/nQGvVAEw5r`)
+				await whitehall_message.reply(`Присоединяйтесь к нашому серверу discord.gg/GJUuPRbN5a`)
 			}, 2000)
 		})
 
@@ -299,7 +299,7 @@ module.exports = {
 		}).catch(async err => {
 			setTimeout(async () => {
 				console.log(err);
-				await whitehall_message.reply(`Присоединяйтесь к нашому серверу discord.gg/nQGvVAEw5r`)
+				await whitehall_message.reply(`Присоединяйтесь к нашому серверу discord.gg/GJUuPRbN5a`)
 			}, 2000)
 		})
 
